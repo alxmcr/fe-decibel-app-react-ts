@@ -2,8 +2,8 @@ import { PlayerStatus } from '../@enums/appEnums';
 
 /**
 
-- 'set_song_playing_id` => idSongPlaying = <id_song>
-- 'set_number_position_song_playing_id' => numberPositionSongPlaying = <position_song>
+- 'set_song_playing_id` => idSongPlaying = action.payload.<id_song>
+- 'set_number_position_song_playing_id' => numberPositionSongPlaying = action.payload.<position_song>
 
 - 'play' => statusPlayer = PlayerStatus.NOW_PLAYING
 - 'pause' => statusPlayer = PlayerStatus.PAUSED
