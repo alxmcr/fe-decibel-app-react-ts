@@ -1,4 +1,4 @@
-import { SongData } from "../@types/serviceTypes";
+import { SongData } from '../@types/serviceTypes';
 
 export const aiSong: SongData = {
   id: 'song-001',
