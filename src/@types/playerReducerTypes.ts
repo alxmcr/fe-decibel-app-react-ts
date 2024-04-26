@@ -2,6 +2,9 @@ import { PlayerStatus } from '../@enums/appEnums';
 
 /**
 
+- 'set_song_id` => idSongPlaying = <id_song>
+- 'set_position_song_id' => 
+
 - 'play' => statusPlayer = PlayerStatus.NOW_PLAYING
 - 'pause' => statusPlayer = PlayerStatus.PAUSED
 
@@ -16,7 +19,7 @@ import { PlayerStatus } from '../@enums/appEnums';
 export type PlayerState = {
   statusPlayer: PlayerStatus;
   totalNumberSongsToPlaying: number;
-  songPlayingId: string;
+  idSongPlaying: string;
   positionSongPlaying: number;
 };
 
