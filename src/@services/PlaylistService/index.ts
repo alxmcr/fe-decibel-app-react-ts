@@ -8,22 +8,30 @@ export class PlaylistService implements IPlaylistService {
       return null;
     }
 
+    let playlistResponse = null;
+
     switch (id) {
       case 'playlist-001': {
-        return MOCK_PLAYLIST_001;
+        playlistResponse = MOCK_PLAYLIST_001;
+        break;
       }
 
       case 'playlist-002': {
-        return MOCK_PLAYLIST_002;
+        playlistResponse = MOCK_PLAYLIST_002;
+        break;
       }
 
       case 'playlist-003': {
-        return MOCK_PLAYLIST_003;
+        playlistResponse = MOCK_PLAYLIST_003;
+        break;
       }
 
       default: {
-        return null;
+        playlistResponse = null;
+        break;
       }
     }
+
+    return playlistResponse;
   }
 }

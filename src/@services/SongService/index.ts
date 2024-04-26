@@ -17,46 +17,60 @@ export class SongService implements ISongService {
       return null;
     }
 
+    let responseSong = null;
+
     switch (id) {
       case 'song-001': {
-        return aiSong;
+        responseSong = aiSong;
+        break;
       }
 
       case 'song-002': {
-        return onYourMindSong;
+        responseSong = onYourMindSong;
+        break;
       }
 
       case 'song-003': {
-        return summersEndSong;
+        responseSong = summersEndSong;
+        break;
       }
 
       case 'song-004': {
-        return thoughtItWasUSong;
+        responseSong = thoughtItWasUSong;
+        break;
       }
 
       case 'song-005': {
-        return vbmSong;
+        responseSong = vbmSong;
+        break;
       }
 
       case 'song-006': {
-        return apartSong;
+        responseSong = apartSong;
+        break;
       }
 
       case 'song-007': {
-        return summersEndSong;
+        responseSong = summersEndSong;
+        break;
       }
 
       case 'song-008': {
-        return downBeatSong;
+        responseSong = downBeatSong;
+        break;
       }
 
       case 'song-009': {
-        return flySong;
+        responseSong = flySong;
+        break;
       }
 
       default: {
-        return null;
+        responseSong = null;
+        break;
       }
     }
+
+    return responseSong;
   }
 }
