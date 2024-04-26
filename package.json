@@ -11,6 +11,7 @@
     "lint": "npx eslint src",
     "lint:fix": "npm run lint -- --fix",
     "format": "npm run prettier:fix && npm run lint:fix",
+    "typescript:check": "npx tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {
