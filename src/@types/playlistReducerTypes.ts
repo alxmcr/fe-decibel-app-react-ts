@@ -2,8 +2,7 @@ import { PlaylistData } from './serviceTypes';
 
 /**
   - 'set_playlist_to_play' => currentPlaylist = action.payload.currentPlaylist
-  
- */
+*/
 
 export type PlaylistState = {
   currentPlaylist: PlaylistData;
