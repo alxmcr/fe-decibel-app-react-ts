@@ -24,3 +24,24 @@ export const nextSongAction = (dispatch: React.Dispatch<PlayerAction>) => {
     type: 'next-song',
   });
 };
+
+export const setSongPlayingIdAction = (dispatch: React.Dispatch<PlayerAction>, idSongPlaying = '') => {
+  dispatch({
+    type: 'set_song_playing_id',
+    payload: {
+      idSongPlaying,
+    },
+  });
+};
+
+export const setNumberPositionSongPlayingAction = (
+  dispatch: React.Dispatch<PlayerAction>,
+  numberPositionSongPlaying = 0,
+) => {
+  dispatch({
+    type: 'set_number_position_song_playing_id',
+    payload: {
+      numberPositionSongPlaying,
+    },
+  });
+};

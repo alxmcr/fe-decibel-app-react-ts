@@ -2,27 +2,43 @@ import { PlayerStatus } from '../@enums/appEnums';
 
 /**
 
-- 'set_song_id` => idSongPlaying = <id_song>
-- 'set_position_song_id' => 
+- 'set_song_playing_id` => idSongPlaying = <id_song>
+- 'set_number_position_song_playing_id' => numberPositionSongPlaying = <position_song>
 
 - 'play' => statusPlayer = PlayerStatus.NOW_PLAYING
 - 'pause' => statusPlayer = PlayerStatus.PAUSED
 
 - 'prev-song` => 
-        if positionSongPlaying - 1 > 0, 
-            you can decrease 'positionSongPlaying' one by one (`positionSongPlaying--`)
+        if numberPositionSongPlaying - 1 > 0, 
+            you can decrease 'numberPositionSongPlaying' one by one (`numberPositionSongPlaying--`)
 - 'next-song` => 
-        if positionSongPlaying + 1 <= totalNumberSongsToPlaying, 
-            you can do increase 'positionSongPlaying' one by one (`positionSongPlaying++`)
+        if numberPositionSongPlaying + 1 <= totalNumberSongsToPlaying, 
+            you can do increase 'numberPositionSongPlaying' one by one (`numberPositionSongPlaying++`)
 */
 
 export type PlayerState = {
   statusPlayer: PlayerStatus;
   totalNumberSongsToPlaying: number;
   idSongPlaying: string;
-  positionSongPlaying: number;
+  numberPositionSongPlaying: number;
 };
 
-export type PlayerAction = {
+export type PlayerDefaultAction = {
   type: 'play' | 'pause' | 'prev-song' | 'next-song';
 };
+
+export type PlayerSetSongAction = {
+  type: 'set_song_playing_id';
+  payload: {
+    idSongPlaying: string;
+  };
+};
+
+export type PlayerSetPositionSongAction = {
+  type: 'set_number_position_song_playing_id';
+  payload: {
+    numberPositionSongPlaying: number;
+  };
+};
+
+export type PlayerAction = PlayerDefaultAction | PlayerSetSongAction | PlayerSetPositionSongAction;
