@@ -1,3 +1,10 @@
+export type SongNCSAttributionData = {
+  songName: string;
+  musicProvidedBy: string;
+  linkDownload: string;
+  linkWatch: string;
+};
+
 export interface SongData {
   id: string;
   name: string;
@@ -5,21 +12,14 @@ export interface SongData {
   duration: string;
   songMP3Url: string;
   albumCoverUrl: string;
-  attribution: NCSAttributionData;
+  attribution: SongNCSAttributionData;
 }
 
 export type SongInPlaylistData = SongData & {
   position: number;
 };
 
-export interface PlaylistData {
+export type PlaylistData = {
   id: string;
   songs: SongInPlaylistData[];
-}
-
-export interface NCSAttributionData {
-  songName: string;
-  musicProvidedBy: string;
-  linkDownload: string;
-  linkWatch: string;
-}
+};
