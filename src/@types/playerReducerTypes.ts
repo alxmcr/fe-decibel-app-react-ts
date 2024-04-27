@@ -18,12 +18,26 @@ import { PlayerStatus } from '../@enums/appEnums';
 
 export type PlayerState = {
   statusPlayer: PlayerStatus;
+  audioToPlay: HTMLAudioElement | null;
   totalNumberSongsToPlaying: number;
-  numberPositionSongPlaying: number;
 };
 
-export type PlayerDefaultAction = {
-  type: 'play' | 'pause' | 'prev-song' | 'next-song';
+export type PlayerInitialActions = {
+  type: 'play' | 'pause';
+};
+
+export type PlayerPrevAudioAction = {
+  type: 'prev-audio';
+  payload: {
+    prevAudio: HTMLAudioElement;
+  };
+};
+
+export type PlayerNextAudioAction = {
+  type: 'next-audio';
+  payload: {
+    nextAudio: HTMLAudioElement;
+  };
 };
 
 export type PlayerSetSongAction = {
@@ -40,4 +54,9 @@ export type PlayerSetPositionSongAction = {
   };
 };
 
-export type PlayerAction = PlayerDefaultAction | PlayerSetSongAction | PlayerSetPositionSongAction;
+export type PlayerAction =
+  | PlayerInitialActions
+  | PlayerPrevAudioAction
+  | PlayerNextAudioAction
+  | PlayerSetSongAction
+  | PlayerSetPositionSongAction;

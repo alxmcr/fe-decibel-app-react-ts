@@ -13,15 +13,21 @@ export const pauseAction = (dispatch: React.Dispatch<PlayerAction>) => {
   });
 };
 
-export const prevSongAction = (dispatch: React.Dispatch<PlayerAction>) => {
+export const prevSongAction = (dispatch: React.Dispatch<PlayerAction>, prevAudio: HTMLAudioElement) => {
   dispatch({
-    type: 'prev-song',
+    type: 'prev-audio',
+    payload: {
+      prevAudio,
+    },
   });
 };
 
-export const nextSongAction = (dispatch: React.Dispatch<PlayerAction>) => {
+export const nextSongAction = (dispatch: React.Dispatch<PlayerAction>, nextAudio: HTMLAudioElement) => {
   dispatch({
-    type: 'next-song',
+    type: 'next-audio',
+    payload: {
+      nextAudio,
+    },
   });
 };
 
