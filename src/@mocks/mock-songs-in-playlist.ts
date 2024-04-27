@@ -10,42 +10,42 @@ import {
   vbmSong,
 } from './mock-songs';
 
-export const song001: SongInPlaylistData = {
+export const songPlaylist001: SongInPlaylistData = {
   position: 1,
-  song: aiSong,
+  ...aiSong,
 };
 
-export const song002: SongInPlaylistData = {
+export const songPlaylist002: SongInPlaylistData = {
   position: 2,
-  song: onYourMindSong,
+  ...onYourMindSong,
 };
 
-export const song003: SongInPlaylistData = {
+export const songPlaylist003: SongInPlaylistData = {
   position: 3,
-  song: summersEndSong,
+  ...summersEndSong,
 };
 
-export const song004: SongInPlaylistData = {
+export const songPlaylist004: SongInPlaylistData = {
   position: 4,
-  song: thoughtItWasUSong,
+  ...thoughtItWasUSong,
 };
 
-export const song005: SongInPlaylistData = {
+export const songPlaylist005: SongInPlaylistData = {
   position: 5,
-  song: vbmSong,
+  ...vbmSong,
 };
 
-export const song006: SongInPlaylistData = {
+export const songPlaylist006: SongInPlaylistData = {
   position: 6,
-  song: apartSong,
+  ...apartSong,
 };
 
-export const song007: SongInPlaylistData = {
+export const songPlaylist007: SongInPlaylistData = {
   position: 7,
-  song: downBeatSong,
+  ...downBeatSong,
 };
 
-export const song008: SongInPlaylistData = {
+export const songPlaylist008: SongInPlaylistData = {
   position: 8,
-  song: flySong,
+  ...flySong,
 };
