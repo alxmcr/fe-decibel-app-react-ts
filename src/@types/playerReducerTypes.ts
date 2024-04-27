@@ -1,5 +1,5 @@
 import { PlayerStatus } from '../@enums/appEnums';
-import { SongData } from './serviceTypes';
+import { SongInPlaylistData } from './serviceTypes';
 
 /**
 
@@ -35,7 +35,7 @@ export type PlayerInitFetchingSongAction = {
 export type PlayerSuccessFetchingSongAction = {
   type: 'success-fetching-song';
   payload: {
-    playlistResponse: SongData;
+    songInPlaylistResponse: SongInPlaylistData;
   };
 };
 
