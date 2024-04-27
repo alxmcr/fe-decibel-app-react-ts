@@ -5,7 +5,9 @@ export default function ProgressBar() {
 
   return (
     <div className="relative h-[8px] w-full rounded-xl bg-perano-200">
-      {percentageElapsedTime > 0 ? <PlayerProgressBarElapsedTime /> : null}
+      {percentageElapsedTime > 0 ? (
+        <PlayerProgressBarElapsedTime percentageElapsedTime={percentageElapsedTime} />
+      ) : null}
     </div>
   );
 }

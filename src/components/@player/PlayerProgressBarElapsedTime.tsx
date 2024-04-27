@@ -1,14 +1,12 @@
-import PlayerTimeInfo from './PlayerTimeInfo';
+type Props = {
+  percentageElapsedTime: number;
+};
 
-export default function PlayerProgressBarElapsedTime() {
-  const duration = 300;
-  const elapsedTimeInSeconds = Math.floor(duration / 2);
-
+export default function PlayerProgressBarElapsedTime({ percentageElapsedTime = 0 }: Props) {
   return (
-    <div className="flex items-center justify-center gap-2 text-[1.35rem]">
-      <PlayerTimeInfo timeInSeconds={elapsedTimeInSeconds} className="font-semibold" />
-      <span className="font-semibold">/</span>
-      <PlayerTimeInfo timeInSeconds={duration} className="text-perano-200" />
-    </div>
+    <div
+      className={`animation-player-progress-bar absolute h-[8px] rounded-xl bg-perano-600`}
+      style={{ width: `${percentageElapsedTime}%` }}
+    ></div>
   );
 }
