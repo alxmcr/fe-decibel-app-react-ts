@@ -1,5 +1,5 @@
 import { LoadingStates } from '../@enums/appEnums';
-import { PlaylistData } from './serviceTypes';
+import { PlaylistData, SongInPlaylistData } from './serviceTypes';
 
 /**
   - 'select_playlist_to_play' => currentPlaylist = action.payload.currentPlaylist
@@ -9,6 +9,7 @@ export type PlaylistState = {
   statusPlaylist: LoadingStates;
   errorPlaylist: Error | null;
   currentPlaylist: PlaylistData;
+  currentSongPlaying: SongInPlaylistData | null;
 };
 
 export type PlaylistInitFetchingAction = {
@@ -34,6 +35,13 @@ export type PlaylistFetchingActions =
   | PlaylistSuccessFetchingAction
   | PlaylistErrorFetchingAction;
 
+export type PlaylistSelectSongToPlay = {
+  type: 'select_song_to_play';
+  payload: {
+    songSelectedOnPlaylist: SongInPlaylistData;
+  };
+};
+
 export type PlaylistSetCurrentPlaylist = {
   type: 'select_playlist_to_play';
   payload: {
@@ -41,4 +49,4 @@ export type PlaylistSetCurrentPlaylist = {
   };
 };
 
-export type PlaylistAction = PlaylistFetchingActions | PlaylistSetCurrentPlaylist;
+export type PlaylistAction = PlaylistFetchingActions | PlaylistSetCurrentPlaylist | PlaylistSelectSongToPlay;

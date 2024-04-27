@@ -23,6 +23,10 @@ export default function playlistReducer(state: PlaylistState, action: PlaylistAc
       return { ...state, currentPlaylist: action.payload.currentPlaylist };
     }
 
+    case 'select_song_to_play': {
+      return { ...state, currentSongPlaying: action.payload.songSelectedOnPlaylist };
+    }
+
     default: {
       throw Error(`Unknown action`);
     }

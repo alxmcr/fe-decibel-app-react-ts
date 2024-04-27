@@ -1,3 +1,4 @@
+import sortSongsOnPlaylistByPosition from '../../@helpers/helpers-playlist';
 import { MOCK_PLAYLIST_001, MOCK_PLAYLIST_002, MOCK_PLAYLIST_003 } from '../../@mocks/mock-playlists';
 import { PlaylistData, SongInPlaylistData } from '../../@types/serviceTypes';
 import { IPlaylistService } from './IPlaylistService';
@@ -10,17 +11,26 @@ export class PlaylistService implements IPlaylistService {
 
         switch (id) {
           case 'playlist-001': {
-            playlistResponse = MOCK_PLAYLIST_001;
+            playlistResponse = {
+              ...MOCK_PLAYLIST_001,
+              songs: sortSongsOnPlaylistByPosition(MOCK_PLAYLIST_001.songs),
+            };
             break;
           }
 
           case 'playlist-002': {
-            playlistResponse = MOCK_PLAYLIST_002;
+            playlistResponse = {
+              ...MOCK_PLAYLIST_002,
+              songs: sortSongsOnPlaylistByPosition(MOCK_PLAYLIST_002.songs),
+            };
             break;
           }
 
           case 'playlist-003': {
-            playlistResponse = MOCK_PLAYLIST_003;
+            playlistResponse = {
+              ...MOCK_PLAYLIST_003,
+              songs: sortSongsOnPlaylistByPosition(MOCK_PLAYLIST_003.songs),
+            };
             break;
           }
 
