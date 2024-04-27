@@ -9,7 +9,7 @@ export default function PlaylistSongList({ songsInPlaylist = [] }: Props) {
   return (
     <ul className="flex flex-col gap-3 border">
       {songsInPlaylist.map((song) => (
-        <PlaylistSongListItem key={song.id} song={song} />
+        <PlaylistSongListItem key={song.id} songInPlaylist={song} />
       ))}
     </ul>
   );

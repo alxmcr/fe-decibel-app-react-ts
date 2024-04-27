@@ -3,20 +3,22 @@ import { songPlaylist001 } from '../../@mocks/mock-songs-in-playlist';
 import { SongInPlaylistData } from '../../@types/serviceTypes';
 
 type Props = {
-  song: SongInPlaylistData;
+  songInPlaylist: SongInPlaylistData;
 };
 
-export default function PlaylistSongListItem({ song }: Props) {
+export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
 
-  const songIsPlaying = songPlaylist001;
-  const selectSongToPlay = () => {};
+  const currentSongPlaying = songPlaylist001;
+  const selectSongToPlay = () => {
+    console.log('Song selected', songInPlaylist);
+  };
 
   React.useEffect(() => {
-    setIsSelectedToPlay(songIsPlaying?.id === song.id);
-  }, [song.id, songIsPlaying?.id]);
+    setIsSelectedToPlay(currentSongPlaying?.id === songInPlaylist.id);
+  }, [songInPlaylist.id, currentSongPlaying?.id]);
 
-  if (song === null || song === undefined) {
+  if (songInPlaylist === null || songInPlaylist === undefined) {
     return null;
   }
 
@@ -26,13 +28,17 @@ export default function PlaylistSongListItem({ song }: Props) {
       onClick={selectSongToPlay}
     >
       <div className="flex items-center gap-2">
-        <img src={song.albumCoverUrl} alt={song.name} className="size-[50px] rounded-full shadow-lg" />
+        <img
+          src={songInPlaylist.albumCoverUrl}
+          alt={songInPlaylist.name}
+          className="size-[50px] rounded-full shadow-lg"
+        />
         <div className="flex flex-col gap-1">
-          <h2 className="text-[1.2rem] font-bold text-black">{song.name}</h2>
-          <p>{song.singer}</p>
+          <h2 className="text-[1.2rem] font-bold text-black">{songInPlaylist.name}</h2>
+          <p>{songInPlaylist.singer}</p>
         </div>
       </div>
-      <p>{song.duration}</p>
+      <p>{songInPlaylist.duration}</p>
     </li>
   );
 }
