@@ -1,3 +1,4 @@
+import React from 'react';
 import { songPlaylist001 } from '../../@mocks/mock-songs-in-playlist';
 import { SongInPlaylistData } from '../../@types/serviceTypes';
 
@@ -6,12 +7,22 @@ type Props = {
 };
 
 export default function PlaylistSongListItem({ song }: Props) {
+  const [isSongPlaying, setIsSongPlaying] = React.useState(false);
+
   const songIsPlaying = songPlaylist001;
   const selectSongToPlay = () => {};
 
+  React.useEffect(() => {
+    setIsSongPlaying(songIsPlaying?.id === song.id);
+  }, [song.id, songIsPlaying?.id]);
+
+  if (song === null || song === undefined) {
+    return null;
+  }
+
   return (
     <li
-      className={`box-border flex max-h-[160px] items-center justify-between gap-3 rounded-lg ${songIsPlaying?.id === song.id ? 'bg-perano-300 hover:text-white' : 'bg-white text-perano-300'} p-3 shadow-md hover:bg-perano-300 hover:text-white`}
+      className={`${isSongPlaying ? 'is-song-playing' : 'bg-white text-perano-300'} box-border flex max-h-[160px] items-center justify-between gap-3 rounded-lg p-3 shadow-md hover:bg-perano-300 hover:text-white`}
       onClick={selectSongToPlay}
     >
       <div className="flex items-center gap-2">
