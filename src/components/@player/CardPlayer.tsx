@@ -1,5 +1,6 @@
 import FooterCardPlayer from './FooterCardPlayer';
 import HeaderCardPlayer from './HeaderCardPlayer';
+import PlayerSongAttribution from './PlayerSongAttribution';
 import PlayerSongInfo from './PlayerSongInfo';
 
 export default function CardPlayer() {
@@ -8,6 +9,7 @@ export default function CardPlayer() {
       <HeaderCardPlayer />
       <PlayerSongInfo />
       <FooterCardPlayer />
+      <PlayerSongAttribution />
     </article>
   );
 }

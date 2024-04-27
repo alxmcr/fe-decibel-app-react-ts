@@ -6,7 +6,7 @@ export default function HeaderCardPlayer() {
   const openDialogPlaylist = () => {};
 
   return (
-    <header className="relative flex h-16 items-center justify-center border p-2">
+    <header className="relative flex h-[110px] items-center justify-center border p-2">
       <button className="absolute left-0 text-perano-300" onClick={openDialogPlaylist}>
         <Icon30x30Playlist />
       </button>

@@ -1,26 +1,35 @@
 import { PlaylistData } from '../@types/serviceTypes';
 import {
-  song001,
-  song002,
-  song003,
-  song004,
-  song005,
-  song006,
-  song007,
-  song008,
+  songPlaylist001,
+  songPlaylist002,
+  songPlaylist003,
+  songPlaylist004,
+  songPlaylist005,
+  songPlaylist006,
+  songPlaylist007,
+  songPlaylist008,
 } from './mock-songs-in-playlist';
 
 export const MOCK_PLAYLIST_001: PlaylistData = {
   id: 'playlist-001',
-  songs: [song001, song002, song003, song004, song005, song006, song007, song008],
+  songs: [
+    songPlaylist001,
+    songPlaylist002,
+    songPlaylist003,
+    songPlaylist004,
+    songPlaylist005,
+    songPlaylist006,
+    songPlaylist007,
+    songPlaylist008,
+  ],
 };
 
 export const MOCK_PLAYLIST_002: PlaylistData = {
   id: 'playlist-002',
-  songs: [song006, song007],
+  songs: [songPlaylist006, songPlaylist007],
 };
 
 export const MOCK_PLAYLIST_003: PlaylistData = {
   id: 'playlist-003',
-  songs: [song002, song003, song005, song008],
+  songs: [songPlaylist002, songPlaylist003, songPlaylist005, songPlaylist008],
 };
