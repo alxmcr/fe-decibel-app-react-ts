@@ -6,7 +6,7 @@ export default function DialogPlaylist() {
   const playlist = MOCK_PLAYLIST_001;
 
   return (
-    <dialog>
+    <dialog open>
       <HeaderDialogPlaylist />
       <BoxPlaylistSongList songsInPlaylist={playlist.songs} />
     </dialog>
