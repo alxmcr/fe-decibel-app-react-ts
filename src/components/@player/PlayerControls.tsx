@@ -8,12 +8,12 @@ import Icon80x80Play from '../@icons/80x80/Icon80x80Play';
 export default function PlayerControls() {
   const [isPlayable, setIsPlayable] = React.useState(false);
 
-  const audio = React.useMemo(() => new Audio('audios/JJL - Thought It Was U [NCS Release].mp3'), []);
   const statusPlayer: PlayerStatus = PlayerStatus.NOW_PLAYING;
   const playSong = () => {};
   const pauseSong = () => {};
   const prevSong = () => {};
   const nextSong = () => {};
+  const audio = React.useMemo(() => new Audio('audios/JJL - Thought It Was U [NCS Release].mp3'), []);
 
   React.useEffect(() => {
     if (audio !== null) {
