@@ -6,9 +6,9 @@ export default function DialogPlaylist() {
   const playlist = MOCK_PLAYLIST_001;
 
   return (
-    <dialog open>
+    <article className="flex h-[668px] w-[320px] flex-col justify-between gap-4 rounded-lg border bg-white md:h-[700px] md:w-[360px]">
       <HeaderDialogPlaylist />
       <BoxPlaylistSongList songsInPlaylist={playlist.songs} />
-    </dialog>
+    </article>
   );
 }
