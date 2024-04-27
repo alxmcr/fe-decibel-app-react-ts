@@ -7,7 +7,7 @@ export default function DialogPlaylist() {
 
   return (
     <dialog open>
-      {/* <HeaderDialogPlaylist /> */}
+      <HeaderDialogPlaylist />
       <BoxPlaylistSongList songsInPlaylist={playlist.songs} />
     </dialog>
   );
