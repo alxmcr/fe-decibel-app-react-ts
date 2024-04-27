@@ -1,6 +1,6 @@
 import PlayerTimeInfo from './PlayerTimeInfo';
 
-export default function PlayerTimeProgress() {
+export default function PlayerChronometer() {
   const duration = 300;
   const elapsedTimeInSeconds = Math.floor(duration / 2);
 
