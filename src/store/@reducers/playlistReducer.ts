@@ -27,6 +27,10 @@ export default function playlistReducer(state: PlaylistState, action: PlaylistAc
       return { ...state, currentSongPlaying: action.payload.songSelectedOnPlaylist };
     }
 
+    case 'move_pointer_position': {
+      return { ...state, pointerPositionSong: action.payload.newPointerPosition };
+    }
+
     default: {
       throw Error(`Unknown action`);
     }

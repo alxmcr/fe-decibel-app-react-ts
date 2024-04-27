@@ -4,6 +4,7 @@ import usePlaylist from '../../hooks/usePlaylist';
 import {
   errorFetchingPlaylist,
   initFetchingPlaylist,
+  movePointerPosition,
   selectSongToPlay,
   successFetchingPlaylist,
 } from '../../store/@actions-creators/playlistActions';
@@ -32,6 +33,7 @@ export default function PlaylistProvider({ children }: Props) {
 
           if (songSelectedOnPlaylist !== null && songSelectedOnPlaylist !== undefined) {
             selectSongToPlay(dispatch, songSelectedOnPlaylist);
+            movePointerPosition(dispatch, songSelectedOnPlaylist.position);
           }
         }
       }

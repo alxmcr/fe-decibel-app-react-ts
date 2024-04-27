@@ -28,6 +28,15 @@ export const errorFetchingPlaylist = (dispatch: React.Dispatch<PlaylistAction>, 
   });
 };
 
+export const movePointerPosition = (dispatch: React.Dispatch<PlaylistAction>, newPointerPosition = 0) => {
+  dispatch({
+    type: 'move_pointer_position',
+    payload: {
+      newPointerPosition,
+    },
+  });
+};
+
 export const selectSongToPlay = (
   dispatch: React.Dispatch<PlaylistAction>,
   songSelectedOnPlaylist: SongInPlaylistData,
