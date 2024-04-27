@@ -1,6 +1,6 @@
 import PlayerTimeInfo from './PlayerTimeInfo';
 
-export default function ProgressBarForSongElapsedTime() {
+export default function PlayerProgressBarElapsedTime() {
   const duration = 300;
   const elapsedTimeInSeconds = Math.floor(duration / 2);
 
