@@ -11,20 +11,12 @@ export default function playerReducer(state: PlayerState, action: PlayerAction):
       return { ...state, statusPlayer: PlayerStatus.PAUSED };
     }
 
-    case 'prev-song': {
-      if (state.numberPositionSongPlaying - 1 > 0) {
-        return { ...state, numberPositionSongPlaying: state.numberPositionSongPlaying - 1 };
-      }
-
-      return state;
+    case 'prev-audio': {
+      return { ...state, audioToPlay: action.payload.prevAudio };
     }
 
-    case 'next-song': {
-      if (state.numberPositionSongPlaying + 1 <= state.totalNumberSongsToPlaying) {
-        return { ...state, numberPositionSongPlaying: state.numberPositionSongPlaying + 1 };
-      }
-
-      return state;
+    case 'next-audio': {
+      return { ...state, audioToPlay: action.payload.nextAudio };
     }
 
     default: {
