@@ -8,14 +8,14 @@ type Props = {
 export default function BoxPlaylistSongList({ songsInPlaylist = [] }: Props) {
   if (songsInPlaylist.length === 0) {
     return (
-      <div className="scrollbar-app flex h-[585px] w-full flex-col items-center justify-center gap-3 overflow-auto">
+      <div className="px-3 py-2">
         <h2>Your playlist is empty.</h2>
       </div>
     );
   }
 
   return (
-    <div className="scrollbar-app flex h-[585px] w-full flex-col items-center justify-center gap-3 overflow-auto">
+    <div className="px-3 py-2">
       <PlaylistSongList songsInPlaylist={songsInPlaylist} />
     </div>
   );
