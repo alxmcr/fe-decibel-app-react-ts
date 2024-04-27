@@ -1,6 +1,6 @@
 import PlayerProgressBarElapsedTime from './PlayerProgressBarElapsedTime';
 
-export default function ProgressBar() {
+export default function PlayerProgressBar() {
   const percentageElapsedTime = 50;
 
   return (
