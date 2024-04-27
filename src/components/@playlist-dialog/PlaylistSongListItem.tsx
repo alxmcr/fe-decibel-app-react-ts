@@ -7,13 +7,13 @@ type Props = {
 };
 
 export default function PlaylistSongListItem({ song }: Props) {
-  const [isSongPlaying, setIsSongPlaying] = React.useState(false);
+  const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
 
   const songIsPlaying = songPlaylist001;
   const selectSongToPlay = () => {};
 
   React.useEffect(() => {
-    setIsSongPlaying(songIsPlaying?.id === song.id);
+    setIsSelectedToPlay(songIsPlaying?.id === song.id);
   }, [song.id, songIsPlaying?.id]);
 
   if (song === null || song === undefined) {
@@ -22,7 +22,7 @@ export default function PlaylistSongListItem({ song }: Props) {
 
   return (
     <li
-      className={`${isSongPlaying ? 'is-song-playing' : 'bg-white text-perano-300'} box-border flex max-h-[160px] items-center justify-between gap-3 rounded-lg border p-3 hover:bg-perano-300 hover:text-white`}
+      className={`${isSelectedToPlay ? 'is-selected-to-play' : 'bg-white text-perano-300'} box-border flex max-h-[160px] items-center justify-between gap-3 rounded-lg border p-3 hover:bg-perano-300 hover:text-white`}
       onClick={selectSongToPlay}
     >
       <div className="flex items-center gap-2">

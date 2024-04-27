@@ -26,11 +26,11 @@
   }
 
   /* Playlist */
-  .is-song-playing {
+  .is-selected-to-play {
     background-color: theme('colors.perano.300');
   }
 
-  .is-song-playing:hover {
+  .is-selected-to-play:hover {
     color: theme('colors.light.50');
   }
 }
