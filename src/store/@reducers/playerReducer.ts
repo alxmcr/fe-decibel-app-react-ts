@@ -11,6 +11,10 @@ export default function playerReducer(state: PlayerState, action: PlayerAction):
       return { ...state, statusPlayer: PlayerStatus.PAUSED };
     }
 
+    case 'set-audio': {
+      return { ...state, audioToPlay: action.payload.newAudio };
+    }
+
     case 'prev-audio': {
       return { ...state, audioToPlay: action.payload.prevAudio };
     }

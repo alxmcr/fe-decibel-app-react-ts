@@ -13,6 +13,15 @@ export const pauseAction = (dispatch: React.Dispatch<PlayerAction>) => {
   });
 };
 
+export const setAudioAction = (dispatch: React.Dispatch<PlayerAction>, newAudio: HTMLAudioElement) => {
+  dispatch({
+    type: 'set-audio',
+    payload: {
+      newAudio,
+    },
+  });
+};
+
 export const prevSongAction = (dispatch: React.Dispatch<PlayerAction>, prevAudio: HTMLAudioElement) => {
   dispatch({
     type: 'prev-audio',
@@ -27,27 +36,6 @@ export const nextSongAction = (dispatch: React.Dispatch<PlayerAction>, nextAudio
     type: 'next-audio',
     payload: {
       nextAudio,
-    },
-  });
-};
-
-export const setSongPlayingIdAction = (dispatch: React.Dispatch<PlayerAction>, idSongPlaying = '') => {
-  dispatch({
-    type: 'set_song_playing_id',
-    payload: {
-      idSongPlaying,
-    },
-  });
-};
-
-export const setNumberPositionSongPlayingAction = (
-  dispatch: React.Dispatch<PlayerAction>,
-  numberPositionSongPlaying = 0,
-) => {
-  dispatch({
-    type: 'set_number_position_song_playing_id',
-    payload: {
-      numberPositionSongPlaying,
     },
   });
 };
