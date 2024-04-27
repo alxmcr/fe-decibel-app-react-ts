@@ -19,7 +19,6 @@ import { PlayerStatus } from '../@enums/appEnums';
 export type PlayerState = {
   statusPlayer: PlayerStatus;
   audioToPlay: HTMLAudioElement | null;
-  totalNumberSongsToPlaying: number;
 };
 
 export type PlayerInitialActions = {
