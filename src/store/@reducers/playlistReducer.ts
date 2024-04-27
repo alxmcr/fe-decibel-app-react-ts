@@ -14,7 +14,7 @@ export default function playlistReducer(state: PlaylistState, action: PlaylistAc
     case 'success-fetching-playlist': {
       return {
         ...state,
-        statusPlaylist: LoadingStates.ERROR,
+        statusPlaylist: LoadingStates.SUCCESS,
         currentPlaylist: action.payload.playlistResponse,
       };
     }
