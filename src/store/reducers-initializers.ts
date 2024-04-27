@@ -8,4 +8,5 @@ export const initialPlaylistData: PlaylistState = {
     id: '',
     songs: [],
   },
+  currentSongPlaying: null,
 };

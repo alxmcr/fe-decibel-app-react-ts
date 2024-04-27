@@ -1,5 +1,5 @@
 import { PlaylistAction } from '../../@types/playlistReducerTypes';
-import { PlaylistData } from '../../@types/serviceTypes';
+import { PlaylistData, SongInPlaylistData } from '../../@types/serviceTypes';
 
 export const initFetchingPlaylist = (dispatch: React.Dispatch<PlaylistAction>) => {
   dispatch({
@@ -24,6 +24,18 @@ export const errorFetchingPlaylist = (dispatch: React.Dispatch<PlaylistAction>, 
     type: 'error-fetching-playlist',
     payload: {
       errorResponse,
+    },
+  });
+};
+
+export const selectSongToPlay = (
+  dispatch: React.Dispatch<PlaylistAction>,
+  songSelectedOnPlaylist: SongInPlaylistData,
+) => {
+  dispatch({
+    type: 'select_song_to_play',
+    payload: {
+      songSelectedOnPlaylist,
     },
   });
 };

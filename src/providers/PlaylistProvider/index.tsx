@@ -2,9 +2,9 @@ import React from 'react';
 import { LoadingStates } from '../../@enums/appEnums';
 import usePlaylist from '../../hooks/usePlaylist';
 import {
-    errorFetchingPlaylist,
-    initFetchingPlaylist,
-    successFetchingPlaylist,
+  errorFetchingPlaylist,
+  initFetchingPlaylist,
+  successFetchingPlaylist,
 } from '../../store/@actions-creators/playlistActions';
 import playlistReducer from '../../store/@reducers/playlistReducer';
 import { initialPlaylistData } from '../../store/reducers-initializers';
