@@ -1,4 +1,5 @@
 import { PlayerStatus } from '../@enums/appEnums';
+import { SongData } from './serviceTypes';
 
 /**
 
@@ -23,9 +24,32 @@ export type PlayerState = {
   numberPositionSongPlaying: number;
 };
 
-export type PlayerDefaultAction = {
+export type PlayerControlsAction = {
   type: 'play' | 'pause' | 'prev-song' | 'next-song';
 };
+
+export type PlayerInitFetchingSongAction = {
+  type: 'init-fetching-song';
+};
+
+export type PlayerSuccessFetchingSongAction = {
+  type: 'success-fetching-song';
+  payload: {
+    playlistResponse: SongData;
+  };
+};
+
+export type PlayerErrorFetchingSongAction = {
+  type: 'error-fetching-song';
+  payload: {
+    errorResponse: Error;
+  };
+};
+
+export type PlayerFetchingSongActions =
+  | PlayerInitFetchingSongAction
+  | PlayerSuccessFetchingSongAction
+  | PlayerErrorFetchingSongAction;
 
 export type PlayerSetSongAction = {
   type: 'set_song_playing_id';
@@ -41,4 +65,8 @@ export type PlayerSetPositionSongAction = {
   };
 };
 
-export type PlayerAction = PlayerDefaultAction | PlayerSetSongAction | PlayerSetPositionSongAction;
+export type PlayerAction =
+  | PlayerFetchingSongActions
+  | PlayerControlsAction
+  | PlayerSetSongAction
+  | PlayerSetPositionSongAction;
