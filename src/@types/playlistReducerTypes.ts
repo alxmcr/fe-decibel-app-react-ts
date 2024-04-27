@@ -10,6 +10,7 @@ export type PlaylistState = {
   errorPlaylist: Error | null;
   currentPlaylist: PlaylistData;
   currentSongPlaying: SongInPlaylistData | null;
+  pointerPositionSong: number;
 };
 
 export type PlaylistInitFetchingAction = {
@@ -35,6 +36,13 @@ export type PlaylistFetchingActions =
   | PlaylistSuccessFetchingAction
   | PlaylistErrorFetchingAction;
 
+export type PlaylistMovePointerPosition = {
+  type: 'move_pointer_position';
+  payload: {
+    newPointerPosition: number;
+  };
+};
+
 export type PlaylistSelectSongToPlay = {
   type: 'select_song_to_play';
   payload: {
@@ -49,4 +57,8 @@ export type PlaylistSetCurrentPlaylist = {
   };
 };
 
-export type PlaylistAction = PlaylistFetchingActions | PlaylistSetCurrentPlaylist | PlaylistSelectSongToPlay;
+export type PlaylistAction =
+  | PlaylistFetchingActions
+  | PlaylistSetCurrentPlaylist
+  | PlaylistMovePointerPosition
+  | PlaylistSelectSongToPlay;

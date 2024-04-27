@@ -19,7 +19,6 @@ import { PlayerStatus } from '../@enums/appEnums';
 export type PlayerState = {
   statusPlayer: PlayerStatus;
   totalNumberSongsToPlaying: number;
-  idSongPlaying: string;
   numberPositionSongPlaying: number;
 };
 

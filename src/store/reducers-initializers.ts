@@ -9,4 +9,5 @@ export const initialPlaylistData: PlaylistState = {
     songs: [],
   },
   currentSongPlaying: null,
+  pointerPositionSong: 0,
 };
