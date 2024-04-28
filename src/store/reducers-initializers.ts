@@ -17,4 +17,5 @@ export const initialPlayerData: PlayerState = {
   statusPlayer: PlayerStatus.IDLE,
   audioToPlay: null,
   isPlayableAudio: false,
+  elapsedTimeInSeconds: 0
 };
