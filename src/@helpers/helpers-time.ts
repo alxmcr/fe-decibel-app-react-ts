@@ -1,5 +1,4 @@
 export const formatSecondsToTimeSong = (seconds = 0) => {
-  console.log('🚀 ~ formatSecondsToTimeSong ~ seconds:', seconds);
   if (isNaN(seconds)) {
     throw Error(`Error, seconds are invalid ${seconds}`);
   }
@@ -16,7 +15,6 @@ export const formatSecondsToTimeSong = (seconds = 0) => {
 };
 
 export const formatSecondsToTimeSongLessThanOneHour = (secondsToFormat = 0) => {
-  console.log('🚀 ~ formatSecondsToTimeSongLessThanOneHour ~ secondsToFormat:', secondsToFormat);
   if (isNaN(secondsToFormat)) {
     throw Error(`Error, seconds are invalid ${secondsToFormat}`);
   }
@@ -36,7 +34,6 @@ export const formatSecondsToTimeSongLessThanOneHour = (secondsToFormat = 0) => {
   throw Error('Error, seconds are invalid');
 };
 export const formatSecondsToTimeSongGreaterThanOneHour = (secondsToFormat = 0) => {
-  console.log('🚀 ~ formatSecondsToTimeSongGreaterThanOneHour ~ secondsToFormat:', secondsToFormat);
   if (isNaN(secondsToFormat)) {
     throw Error(`Error, seconds are invalid ${secondsToFormat}`);
   }
