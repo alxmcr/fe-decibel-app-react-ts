@@ -1,4 +1,9 @@
 export const formatSecondsToTimeSong = (seconds = 0) => {
+  console.log("🚀 ~ formatSecondsToTimeSong ~ seconds:", seconds)
+  if (isNaN(seconds)) {
+    throw Error(`Error, seconds are invalid ${seconds}`);
+  }
+
   let secondsFormatted = '';
 
   if (seconds < 3600) {
@@ -23,7 +28,7 @@ export const formatSecondsToTimeSongLessThanOneHour = (secondsToFormat = 0) => {
     return `${minutesStr}:${remainingSecondsStr}`;
   }
 
-  throw Error('Error, seconds are invalid');
+  throw Error(`Error, seconds are invalid ${secondsToFormat}`);
 };
 export const formatSecondsToTimeSongGreaterThanOneHour = (secondsToFormat = 0) => {
   const secondsOnlyIntegers = Math.floor(secondsToFormat);
@@ -40,5 +45,5 @@ export const formatSecondsToTimeSongGreaterThanOneHour = (secondsToFormat = 0) =
 
     return `${hoursStr}:${minutesStr}:${remainingSecondsStr}`;
   }
-  throw Error('Error, seconds are invalid');
+  throw Error(`Error, seconds are invalid ${secondsToFormat}`);
 };
