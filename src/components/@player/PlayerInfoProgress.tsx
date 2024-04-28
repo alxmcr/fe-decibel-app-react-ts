@@ -21,7 +21,7 @@ export default function PlayerInfoProgress() {
 
   return (
     <div className="flex flex-col gap-2 border">
-      <PlayerProgressBar />
+      <PlayerProgressBar durationOnSeconds={durationOnSeconds} elapsedTimeInSeconds={elapsedTimeInSeconds} />
       <PlayerChronometer durationOnSeconds={durationOnSeconds} elapsedTimeInSeconds={elapsedTimeInSeconds} />
     </div>
   );
