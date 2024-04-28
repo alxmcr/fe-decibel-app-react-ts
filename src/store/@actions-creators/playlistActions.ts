@@ -19,7 +19,10 @@ export const successFetchingPlaylistAction = (
   });
 };
 
-export const errorFetchingPlaylistAction = (dispatch: React.Dispatch<PlaylistAction>, errorResponse: Error) => {
+export const errorFetchingPlaylistAction = (
+  dispatch: React.Dispatch<PlaylistAction>,
+  errorResponse: Error,
+) => {
   dispatch({
     type: 'error-fetching-playlist',
     payload: {
@@ -28,7 +31,10 @@ export const errorFetchingPlaylistAction = (dispatch: React.Dispatch<PlaylistAct
   });
 };
 
-export const movePointerPositionAction = (dispatch: React.Dispatch<PlaylistAction>, newPointerPosition = 0) => {
+export const movePointerPositionAction = (
+  dispatch: React.Dispatch<PlaylistAction>,
+  newPointerPosition = 0,
+) => {
   dispatch({
     type: 'move_pointer_position',
     payload: {
