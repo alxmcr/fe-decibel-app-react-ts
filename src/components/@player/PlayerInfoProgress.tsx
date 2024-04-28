@@ -4,8 +4,17 @@ import PlayerChronometer from './PlayerChronometer';
 import PlayerProgressBar from './PlayerProgressBar';
 
 export default function PlayerInfoProgress() {
-  const { elapsedTimeInSeconds, audioToPlay } = React.useContext(PlayerDataContext);
-  const durationOnSeconds = audioToPlay !== null ? audioToPlay.duration : 0;
+  const { elapsedTimeInSeconds, audioToPlay, isPlayableAudio } = React.useContext(PlayerDataContext);
+  const [durationOnSeconds, setDurationOnSeconds] = React.useState(0);
+
+  React.useEffect(() => {
+    if (audioToPlay !== null && audioToPlay !== undefined) {
+      if (isPlayableAudio) {
+        const { duration } = audioToPlay;
+        setDurationOnSeconds(duration);
+      }
+    }
+  }, [isPlayableAudio, audioToPlay]);
 
   return (
     <div className="flex flex-col gap-2 border">
