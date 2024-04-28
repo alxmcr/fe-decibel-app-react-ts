@@ -4,7 +4,10 @@ import {
   PlaylistDataContext,
   PlaylistDispatchContext,
 } from '../../providers/PlaylistProvider/PlaylistContext';
-import { selectSongToPlayAction } from '../../store/@actions-creators/playlistActions';
+import {
+  movePointerPositionAction,
+  selectSongToPlayAction,
+} from '../../store/@actions-creators/playlistActions';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -17,6 +20,8 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
 
   const selectSongToPlay = () => {
     selectSongToPlayAction(dispatchPlaylist, songInPlaylist);
+    // Move pointer
+    movePointerPositionAction(dispatchPlaylist, songInPlaylist.position);
   };
 
   React.useEffect(() => {
