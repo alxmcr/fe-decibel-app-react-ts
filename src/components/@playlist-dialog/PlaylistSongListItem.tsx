@@ -8,6 +8,8 @@ import {
   movePointerPositionAction,
   selectSongToPlayAction,
 } from '../../store/@actions-creators/playlistActions';
+import { setIsPlayableAction } from '../../store/@actions-creators/playerActions';
+import { PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -17,9 +19,11 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
   const { currentSongPlaying } = React.useContext(PlaylistDataContext);
   const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
+  const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
   const selectSongToPlay = () => {
     selectSongToPlayAction(dispatchPlaylist, songInPlaylist);
+    setIsPlayableAction(dispatchPlayer, false);
     // Move pointer
     movePointerPositionAction(dispatchPlaylist, songInPlaylist.position);
   };

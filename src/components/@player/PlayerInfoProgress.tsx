@@ -11,7 +11,10 @@ export default function PlayerInfoProgress() {
     if (audioToPlay !== null && audioToPlay !== undefined) {
       if (isPlayableAudio) {
         const { duration } = audioToPlay;
-        setDurationOnSeconds(duration);
+
+        if (!isNaN(duration)) {
+          setDurationOnSeconds(duration);
+        }
       }
     }
   }, [isPlayableAudio, audioToPlay]);
