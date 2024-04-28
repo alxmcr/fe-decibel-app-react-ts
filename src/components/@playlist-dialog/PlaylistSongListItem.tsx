@@ -1,6 +1,13 @@
 import React from 'react';
-import { songPlaylist001 } from '../../@mocks/mock-songs-in-playlist';
 import { SongInPlaylistData } from '../../@types/serviceTypes';
+import {
+  PlaylistDataContext,
+  PlaylistDispatchContext,
+} from '../../providers/PlaylistProvider/PlaylistContext';
+import {
+  movePointerPositionAction,
+  selectSongToPlayAction,
+} from '../../store/@actions-creators/playlistActions';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -8,10 +15,13 @@ type Props = {
 
 export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
-  const currentSongPlaying = songPlaylist001;
+  const { currentSongPlaying } = React.useContext(PlaylistDataContext);
+  const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
 
   const selectSongToPlay = () => {
-    console.log('Song selected', songInPlaylist);
+    selectSongToPlayAction(dispatchPlaylist, songInPlaylist);
+    // Move pointer
+    movePointerPositionAction(dispatchPlaylist, songInPlaylist.position);
   };
 
   React.useEffect(() => {
