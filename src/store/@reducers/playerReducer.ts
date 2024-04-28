@@ -19,6 +19,10 @@ export default function playerReducer(state: PlayerState, action: PlayerAction):
       return { ...state, isPlayableAudio: action.payload.isPlayable };
     }
 
+    case 'update-elapsed-time': {
+      return { ...state, elapsedTimeInSeconds: action.payload.elapsedTimeInSeconds };
+    }
+
     case 'prev-audio': {
       return { ...state, audioToPlay: action.payload.prevAudio };
     }

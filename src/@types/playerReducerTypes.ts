@@ -20,6 +20,7 @@ export type PlayerState = {
   statusPlayer: PlayerStatus;
   audioToPlay: HTMLAudioElement | null;
   isPlayableAudio: boolean;
+  elapsedTimeInSeconds: number;
 };
 
 export type PlayerInitialActions = {
@@ -37,6 +38,13 @@ export type PlayerSetIsPlayableAction = {
   type: 'set-is-playable';
   payload: {
     isPlayable: boolean;
+  };
+};
+
+export type PlayerUpdateElapsedTimeAction = {
+  type: 'update-elapsed-time';
+  payload: {
+    elapsedTimeInSeconds: number;
   };
 };
 
@@ -58,5 +66,6 @@ export type PlayerAction =
   | PlayerInitialActions
   | PlayerSetAudio
   | PlayerSetIsPlayableAction
+  | PlayerUpdateElapsedTimeAction
   | PlayerPrevAudioAction
   | PlayerNextAudioAction;

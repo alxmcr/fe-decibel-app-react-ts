@@ -31,6 +31,15 @@ export const setIsPlayableAction = (dispatch: React.Dispatch<PlayerAction>, isPl
   });
 };
 
+export const updateElapsedTime = (dispatch: React.Dispatch<PlayerAction>, elapsedTimeInSeconds = 0) => {
+  dispatch({
+    type: 'update-elapsed-time',
+    payload: {
+      elapsedTimeInSeconds,
+    },
+  });
+};
+
 export const prevSongAction = (dispatch: React.Dispatch<PlayerAction>, prevAudio: HTMLAudioElement) => {
   dispatch({
     type: 'prev-audio',
