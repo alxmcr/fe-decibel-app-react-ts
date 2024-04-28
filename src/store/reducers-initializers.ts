@@ -16,4 +16,5 @@ export const initialPlaylistData: PlaylistState = {
 export const initialPlayerData: PlayerState = {
   statusPlayer: PlayerStatus.IDLE,
   audioToPlay: null,
+  isPlayableAudio: false,
 };
