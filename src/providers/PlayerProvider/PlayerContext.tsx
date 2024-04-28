@@ -4,6 +4,4 @@ import { initialPlayerData } from '../../store/reducers-initializers';
 
 export const PlayerDataContext = React.createContext<PlayerState>(initialPlayerData);
 
-export const PlayerDispatchContext = React.createContext<React.Dispatch<PlayerAction>>(
-  () => {},
-);
+export const PlayerDispatchContext = React.createContext<React.Dispatch<PlayerAction>>(() => {});
