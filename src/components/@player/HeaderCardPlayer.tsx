@@ -1,8 +1,9 @@
-import { PlayerStatus } from '../../@enums/appEnums';
+import React from 'react';
 import Icon30x30Playlist from '../@icons/30x30/Icon30x30Playlist';
+import { PlayerDataContext } from '../../providers/PlayerProvider/PlayerContext';
 
 export default function HeaderCardPlayer() {
-  const statusPlayer: PlayerStatus = PlayerStatus.NOW_PLAYING;
+  const { statusPlayer } = React.useContext(PlayerDataContext);
   const openDialogPlaylist = () => {};
 
   return (
@@ -10,7 +11,9 @@ export default function HeaderCardPlayer() {
       <button className="absolute left-0 text-perano-300" onClick={openDialogPlaylist}>
         <Icon30x30Playlist />
       </button>
-      <h3 className="text-center text-[1.35rem] font-semibold text-perano-300">{statusPlayer}</h3>
+      <h3 className="text-center text-[1.35rem] font-semibold text-perano-300">
+        {statusPlayer !== '' ? statusPlayer : 'Decibel app'}
+      </h3>
     </header>
   );
 }
