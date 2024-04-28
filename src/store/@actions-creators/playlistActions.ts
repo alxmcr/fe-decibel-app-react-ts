@@ -1,13 +1,13 @@
 import { PlaylistAction } from '../../@types/playlistReducerTypes';
 import { PlaylistData, SongInPlaylistData } from '../../@types/serviceTypes';
 
-export const initFetchingPlaylist = (dispatch: React.Dispatch<PlaylistAction>) => {
+export const initFetchingPlaylistAction = (dispatch: React.Dispatch<PlaylistAction>) => {
   dispatch({
     type: 'init-fetching-playlist',
   });
 };
 
-export const successFetchingPlaylist = (
+export const successFetchingPlaylistAction = (
   dispatch: React.Dispatch<PlaylistAction>,
   playlistResponse: PlaylistData,
 ) => {
@@ -19,7 +19,7 @@ export const successFetchingPlaylist = (
   });
 };
 
-export const errorFetchingPlaylist = (dispatch: React.Dispatch<PlaylistAction>, errorResponse: Error) => {
+export const errorFetchingPlaylistAction = (dispatch: React.Dispatch<PlaylistAction>, errorResponse: Error) => {
   dispatch({
     type: 'error-fetching-playlist',
     payload: {
@@ -28,7 +28,7 @@ export const errorFetchingPlaylist = (dispatch: React.Dispatch<PlaylistAction>, 
   });
 };
 
-export const movePointerPosition = (dispatch: React.Dispatch<PlaylistAction>, newPointerPosition = 0) => {
+export const movePointerPositionAction = (dispatch: React.Dispatch<PlaylistAction>, newPointerPosition = 0) => {
   dispatch({
     type: 'move_pointer_position',
     payload: {
@@ -37,7 +37,7 @@ export const movePointerPosition = (dispatch: React.Dispatch<PlaylistAction>, ne
   });
 };
 
-export const selectSongToPlay = (
+export const selectSongToPlayAction = (
   dispatch: React.Dispatch<PlaylistAction>,
   songSelectedOnPlaylist: SongInPlaylistData,
 ) => {
@@ -49,7 +49,7 @@ export const selectSongToPlay = (
   });
 };
 
-export const selectPlaylistToPlay = (
+export const selectPlaylistToPlayAction = (
   dispatch: React.Dispatch<PlaylistAction>,
   currentPlaylist: PlaylistData,
 ) => {

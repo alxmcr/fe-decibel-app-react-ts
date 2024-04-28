@@ -2,11 +2,11 @@ import React from 'react';
 import { LoadingStates } from '../../@enums/appEnums';
 import usePlaylist from '../../hooks/usePlaylist';
 import {
-  errorFetchingPlaylist,
-  initFetchingPlaylist,
-  movePointerPosition,
-  selectSongToPlay,
-  successFetchingPlaylist,
+  errorFetchingPlaylistAction,
+  initFetchingPlaylistAction,
+  movePointerPositionAction,
+  selectSongToPlayAction,
+  successFetchingPlaylistAction,
 } from '../../store/@actions-creators/playlistActions';
 import playlistReducer from '../../store/@reducers/playlistReducer';
 import { initialPlaylistData } from '../../store/reducers-initializers';
@@ -23,23 +23,23 @@ export default function PlaylistProvider({ children }: Props) {
 
   React.useEffect(() => {
     if (LoadingStates.PENDING === statusPlaylist) {
-      initFetchingPlaylist(dispatch);
+      initFetchingPlaylistAction(dispatch);
     } else if (LoadingStates.SUCCESS === statusPlaylist) {
       if (playlist !== null && playlist !== undefined) {
-        successFetchingPlaylist(dispatch, playlist);
+        successFetchingPlaylistAction(dispatch, playlist);
 
         if (playlist.songs !== null && playlist.songs !== undefined) {
           const songSelectedOnPlaylist = playlist.songs.length > 0 ? playlist.songs[0] : null;
 
           if (songSelectedOnPlaylist !== null && songSelectedOnPlaylist !== undefined) {
-            selectSongToPlay(dispatch, songSelectedOnPlaylist);
-            movePointerPosition(dispatch, songSelectedOnPlaylist.position);
+            selectSongToPlayAction(dispatch, songSelectedOnPlaylist);
+            movePointerPositionAction(dispatch, songSelectedOnPlaylist.position);
           }
         }
       }
     } else if (LoadingStates.ERROR === statusPlaylist) {
       if (errorPlaylist !== null && errorPlaylist !== undefined) {
-        errorFetchingPlaylist(dispatch, errorPlaylist);
+        errorFetchingPlaylistAction(dispatch, errorPlaylist);
       }
     }
   }, [playlist, errorPlaylist, statusPlaylist]);

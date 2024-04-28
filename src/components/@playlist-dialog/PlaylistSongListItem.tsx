@@ -8,8 +8,8 @@ type Props = {
 
 export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
-
   const currentSongPlaying = songPlaylist001;
+
   const selectSongToPlay = () => {
     console.log('Song selected', songInPlaylist);
   };
