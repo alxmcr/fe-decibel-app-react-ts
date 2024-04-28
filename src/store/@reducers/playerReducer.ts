@@ -15,6 +15,10 @@ export default function playerReducer(state: PlayerState, action: PlayerAction):
       return { ...state, audioToPlay: action.payload.newAudio };
     }
 
+    case 'set-is-playable': {
+      return { ...state, isPlayableAudio: action.payload.isPlayable };
+    }
+
     case 'prev-audio': {
       return { ...state, audioToPlay: action.payload.prevAudio };
     }
