@@ -19,11 +19,17 @@ import { PlayerStatus } from '../@enums/appEnums';
 export type PlayerState = {
   statusPlayer: PlayerStatus;
   audioToPlay: HTMLAudioElement | null;
-  totalNumberSongsToPlaying: number;
 };
 
 export type PlayerInitialActions = {
   type: 'play' | 'pause';
+};
+
+export type PlayerSetAudio = {
+  type: 'set-audio';
+  payload: {
+    newAudio: HTMLAudioElement;
+  };
 };
 
 export type PlayerPrevAudioAction = {
@@ -40,23 +46,8 @@ export type PlayerNextAudioAction = {
   };
 };
 
-export type PlayerSetSongAction = {
-  type: 'set_song_playing_id';
-  payload: {
-    idSongPlaying: string;
-  };
-};
-
-export type PlayerSetPositionSongAction = {
-  type: 'set_number_position_song_playing_id';
-  payload: {
-    numberPositionSongPlaying: number;
-  };
-};
-
 export type PlayerAction =
   | PlayerInitialActions
+  | PlayerSetAudio
   | PlayerPrevAudioAction
-  | PlayerNextAudioAction
-  | PlayerSetSongAction
-  | PlayerSetPositionSongAction;
+  | PlayerNextAudioAction;

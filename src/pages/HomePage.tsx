@@ -1,10 +1,13 @@
 import LayoutHomePage from '../@layouts/LayoutHomePage';
+import PlayerProvider from '../providers/PlayerProvider';
 import PlaylistProvider from '../providers/PlaylistProvider';
 
 export default function HomePage() {
   return (
     <PlaylistProvider>
-      <LayoutHomePage />
+      <PlayerProvider>
+        <LayoutHomePage />
+      </PlayerProvider>
     </PlaylistProvider>
   );
 }

@@ -1,4 +1,5 @@
-import { LoadingStates } from '../@enums/appEnums';
+import { LoadingStates, PlayerStatus } from '../@enums/appEnums';
+import { PlayerState } from '../@types/playerReducerTypes';
 import { PlaylistState } from '../@types/playlistReducerTypes';
 
 export const initialPlaylistData: PlaylistState = {
@@ -10,4 +11,9 @@ export const initialPlaylistData: PlaylistState = {
   },
   currentSongPlaying: null,
   pointerPositionSong: 0,
+};
+
+export const initialPlayerData: PlayerState = {
+  statusPlayer: PlayerStatus.IDLE,
+  audioToPlay: null,
 };
