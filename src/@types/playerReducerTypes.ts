@@ -19,6 +19,7 @@ import { PlayerStatus } from '../@enums/appEnums';
 export type PlayerState = {
   statusPlayer: PlayerStatus;
   audioToPlay: HTMLAudioElement | null;
+  isPlayableAudio: boolean;
 };
 
 export type PlayerInitialActions = {
@@ -29,6 +30,13 @@ export type PlayerSetAudio = {
   type: 'set-audio';
   payload: {
     newAudio: HTMLAudioElement;
+  };
+};
+
+export type PlayerSetIsPlayableAction = {
+  type: 'set-is-playable';
+  payload: {
+    isPlayable: boolean;
   };
 };
 
@@ -49,5 +57,6 @@ export type PlayerNextAudioAction = {
 export type PlayerAction =
   | PlayerInitialActions
   | PlayerSetAudio
+  | PlayerSetIsPlayableAction
   | PlayerPrevAudioAction
   | PlayerNextAudioAction;

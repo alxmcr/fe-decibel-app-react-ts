@@ -22,6 +22,15 @@ export const setAudioAction = (dispatch: React.Dispatch<PlayerAction>, newAudio:
   });
 };
 
+export const setIsPlayableAction = (dispatch: React.Dispatch<PlayerAction>, isPlayable = false) => {
+  dispatch({
+    type: 'set-is-playable',
+    payload: {
+      isPlayable,
+    },
+  });
+};
+
 export const prevSongAction = (dispatch: React.Dispatch<PlayerAction>, prevAudio: HTMLAudioElement) => {
   dispatch({
     type: 'prev-audio',
