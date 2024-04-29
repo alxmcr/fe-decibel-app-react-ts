@@ -1,20 +1,20 @@
 import React from 'react';
+import { PlayerStatus } from '../../@enums/appEnums';
 import { SongInPlaylistData } from '../../@types/serviceTypes';
+import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import {
   PlaylistDataContext,
   PlaylistDispatchContext,
 } from '../../providers/PlaylistProvider/PlaylistContext';
 import {
-  movePointerPositionAction,
-  selectSongToPlayAction,
-} from '../../store/@actions-creators/playlistActions';
-import {
   setIsPlayableAction,
   updateElapsedTimeAction,
   updateStatusPlayerAction,
 } from '../../store/@actions-creators/playerActions';
-import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
-import { PlayerStatus } from '../../@enums/appEnums';
+import {
+  movePointerPositionAction,
+  selectSongToPlayAction,
+} from '../../store/@actions-creators/playlistActions';
 import SoundBarsAnimation from '../@animations/SoundBarsAnimation';
 
 type Props = {
@@ -66,7 +66,7 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
           <p className="text-[0.85rem]">{songInPlaylist.singer}</p>
         </div>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-8">
         <SoundBarsAnimation />
         <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
       </div>
