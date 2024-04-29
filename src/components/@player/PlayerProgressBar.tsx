@@ -8,10 +8,12 @@ type Props = {
 };
 
 export default function PlayerProgressBar({ durationOnSeconds = 0, elapsedTimeInSeconds = 0 }: Props) {
+  console.log({ durationOnSeconds, elapsedTimeInSeconds });
   const [percentageElapsedTime, setPercentageElapsedTime] = React.useState(0);
 
   React.useEffect(() => {
     const currentPercentage = getPercentageElapsedTime(elapsedTimeInSeconds + 1, durationOnSeconds);
+    console.log('🚀 ~ React.useEffect ~ currentPercentage:', currentPercentage);
     setPercentageElapsedTime(currentPercentage);
   }, [durationOnSeconds, elapsedTimeInSeconds]);
 
