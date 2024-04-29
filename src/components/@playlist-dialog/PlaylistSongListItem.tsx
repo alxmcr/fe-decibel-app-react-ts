@@ -15,6 +15,7 @@ import {
 } from '../../store/@actions-creators/playerActions';
 import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import { PlayerStatus } from '../../@enums/appEnums';
+import SoundWaveAnimation from '../@animations/SoundWaveAnimation';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -58,14 +59,17 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
         <img
           src={songInPlaylist.albumCoverUrl}
           alt={songInPlaylist.name}
-          className="size-[50px] rounded-full shadow-lg"
+          className="size-[45px] rounded-full shadow-lg"
         />
         <div className="flex flex-col gap-1">
-          <h2 className="text-[1.2rem] font-bold text-black">{songInPlaylist.name}</h2>
-          <p>{songInPlaylist.singer}</p>
+          <h2 className="text-[0.95rem] font-bold text-black">{songInPlaylist.name}</h2>
+          <p className="text-[0.85rem]">{songInPlaylist.singer}</p>
         </div>
       </div>
-      <p>{songInPlaylist.duration}</p>
+      <div className="flex items-center gap-4">
+        <SoundWaveAnimation />
+        <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
+      </div>
     </li>
   );
 }
