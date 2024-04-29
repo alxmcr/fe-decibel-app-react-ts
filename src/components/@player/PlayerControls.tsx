@@ -52,8 +52,9 @@ export default function PlayerControls() {
   // update elapsedTime
   React.useEffect(() => {
     const handleTimeUpdate = () => {
+      const currentTime = audioToPlay?.currentTime !== undefined ? audioToPlay?.currentTime : 0;
       // Updated
-      updateElapsedTime(dispatchPlayer, audioToPlay?.currentTime);
+      updateElapsedTime(dispatchPlayer, currentTime + 1);
     };
 
     audioToPlay?.addEventListener('timeupdate', handleTimeUpdate);
