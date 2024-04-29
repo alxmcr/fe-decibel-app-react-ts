@@ -7,6 +7,7 @@ export default function PlayerInfoProgress() {
   const { elapsedTimeInSeconds, audioToPlay, isPlayableAudio } = React.useContext(PlayerDataContext);
   const [durationOnSeconds, setDurationOnSeconds] = React.useState(0);
 
+  // update duration data
   React.useEffect(() => {
     if (audioToPlay !== null && audioToPlay !== undefined) {
       if (isPlayableAudio) {
