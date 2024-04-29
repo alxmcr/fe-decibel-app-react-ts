@@ -1,6 +1,6 @@
 import React from 'react';
-import { PlayerAction } from '../../@types/playerReducerTypes';
 import { PlayerStatus } from '../../@enums/appEnums';
+import { PlayerAction } from '../../@types/playerReducerTypes';
 
 export const playAction = (dispatch: React.Dispatch<PlayerAction>) => {
   dispatch({
@@ -58,24 +58,6 @@ export const updateDurationTimeAction = (dispatch: React.Dispatch<PlayerAction>,
     type: 'update-duration-time',
     payload: {
       durationOnSeconds: Math.floor(durationOnSeconds),
-    },
-  });
-};
-
-export const prevSongAction = (dispatch: React.Dispatch<PlayerAction>, prevAudio: HTMLAudioElement) => {
-  dispatch({
-    type: 'prev-audio',
-    payload: {
-      prevAudio,
-    },
-  });
-};
-
-export const nextSongAction = (dispatch: React.Dispatch<PlayerAction>, nextAudio: HTMLAudioElement) => {
-  dispatch({
-    type: 'next-audio',
-    payload: {
-      nextAudio,
     },
   });
 };

@@ -2,6 +2,10 @@ import React from 'react';
 import { PlayerStatus } from '../../@enums/appEnums';
 import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import {
+  PlaylistDataContext,
+  PlaylistDispatchContext,
+} from '../../providers/PlaylistProvider/PlaylistContext';
+import {
   pauseAction,
   playAction,
   setIsPlayableAction,
@@ -12,11 +16,14 @@ import Icon50x50NextSongFilled from '../@icons/50x50/Icon50x50NextSongFilled';
 import Icon50x50PrevSongFilled from '../@icons/50x50/Icon50x50PrevSongFilled';
 import Icon80x80Pause from '../@icons/80x80/Icon80x80Pause';
 import Icon80x80Play from '../@icons/80x80/Icon80x80Play';
+import { movePointerPositionAction } from '../../store/@actions-creators/playlistActions';
 
 export default function PlayerControls() {
   const { audioToPlay, statusPlayer, isPlayableAudio, durationOnSeconds } =
     React.useContext(PlayerDataContext);
   const dispatchPlayer = React.useContext(PlayerDispatchContext);
+  const { pointerPositionSong } = React.useContext(PlaylistDataContext);
+  const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
 
   const playSong = () => {
     playAction(dispatchPlayer);
@@ -34,8 +41,17 @@ export default function PlayerControls() {
     }
   };
 
-  const prevSong = () => {};
-  const nextSong = () => {};
+  const prevSong = () => {
+    console.log('prev song');
+    console.log({ pointerPositionSong });
+    movePointerPositionAction(dispatchPlaylist, pointerPositionSong - 1);
+  };
+
+  const nextSong = () => {
+    console.log('next song');
+    console.log({ pointerPositionSong });
+    movePointerPositionAction(dispatchPlaylist, pointerPositionSong + 1);
+  };
 
   // Loaded audio data
   React.useEffect(() => {
