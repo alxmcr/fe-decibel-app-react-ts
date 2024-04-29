@@ -3,7 +3,6 @@ import { PlayerDataContext, PlayerDispatchContext } from '../../providers/Player
 import { setIsPlayableAction } from '../../store/@actions-creators/playerActions';
 import FooterCardPlayer from './FooterCardPlayer';
 import HeaderCardPlayer from './HeaderCardPlayer';
-import PlayerSongAttribution from './player-song-info/PlayerSongAttribution';
 import PlayerSongInfo from './player-song-info/PlayerSongInfo';
 
 export default function CardPlayer() {
@@ -29,7 +28,6 @@ export default function CardPlayer() {
       <HeaderCardPlayer />
       <PlayerSongInfo />
       <FooterCardPlayer />
-      <PlayerSongAttribution />
     </article>
   );
 }
