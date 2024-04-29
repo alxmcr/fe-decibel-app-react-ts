@@ -2,6 +2,7 @@ import React from 'react';
 import { PlayerStatus } from '../../@enums/appEnums';
 import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import {
+  pauseAction,
   playAction,
   setIsPlayableAction,
   updateElapsedTime,
@@ -17,12 +18,20 @@ export default function PlayerControls() {
 
   const playSong = () => {
     playAction(dispatchPlayer);
-    // Playing the audio
+    // Start Playing the audio
     if (isPlayableAudio && audioToPlay !== null && audioToPlay !== undefined) {
       audioToPlay?.play();
     }
   };
-  const pauseSong = () => {};
+
+  const pauseSong = () => {
+    pauseAction(dispatchPlayer);
+    // Pause the audio
+    if (isPlayableAudio && audioToPlay !== null && audioToPlay !== undefined) {
+      audioToPlay?.pause();
+    }
+  };
+
   const prevSong = () => {};
   const nextSong = () => {};
 
