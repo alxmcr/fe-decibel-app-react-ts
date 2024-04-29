@@ -1,20 +1,21 @@
 import React from 'react';
+import { PlayerStatus } from '../../@enums/appEnums';
 import { SongInPlaylistData } from '../../@types/serviceTypes';
+import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import {
   PlaylistDataContext,
   PlaylistDispatchContext,
 } from '../../providers/PlaylistProvider/PlaylistContext';
 import {
-  movePointerPositionAction,
-  selectSongToPlayAction,
-} from '../../store/@actions-creators/playlistActions';
-import {
   setIsPlayableAction,
   updateElapsedTimeAction,
   updateStatusPlayerAction,
 } from '../../store/@actions-creators/playerActions';
-import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
-import { PlayerStatus } from '../../@enums/appEnums';
+import {
+  movePointerPositionAction,
+  selectSongToPlayAction,
+} from '../../store/@actions-creators/playlistActions';
+import BoxSoundBarsAnimation from '../@animations/BoxSoundBarsAnimation';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -23,7 +24,7 @@ type Props = {
 export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
   const { audioToPlay } = React.useContext(PlayerDataContext);
-  const { currentSongPlaying } = React.useContext(PlaylistDataContext);
+  const { currentSongPlaying, pointerPositionSong } = React.useContext(PlaylistDataContext);
   const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
   const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
@@ -58,14 +59,17 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
         <img
           src={songInPlaylist.albumCoverUrl}
           alt={songInPlaylist.name}
-          className="size-[50px] rounded-full shadow-lg"
+          className="size-[45px] rounded-full shadow-lg"
         />
         <div className="flex flex-col gap-1">
-          <h2 className="text-[1.2rem] font-bold text-black">{songInPlaylist.name}</h2>
-          <p>{songInPlaylist.singer}</p>
+          <h2 className="text-[0.95rem] font-bold text-black">{songInPlaylist.name}</h2>
+          <p className="text-[0.85rem]">{songInPlaylist.singer}</p>
         </div>
       </div>
-      <p>{songInPlaylist.duration}</p>
+      <div className="flex items-center gap-8">
+        {songInPlaylist.position === pointerPositionSong ? <BoxSoundBarsAnimation /> : null}
+        <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
+      </div>
     </li>
   );
 }

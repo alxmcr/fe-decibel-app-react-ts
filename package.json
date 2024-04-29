@@ -15,8 +15,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "css.gg": "^2.1.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
@@ -37,5 +39,8 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
