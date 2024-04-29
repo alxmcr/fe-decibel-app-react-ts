@@ -1,8 +1,8 @@
 import React from 'react';
-import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
+import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
 import PlayerChronometer from './PlayerChronometer';
 import PlayerProgressBar from './PlayerProgressBar';
-import { updateDurationTimeAction } from '../../store/@actions-creators/playerActions';
+import { updateDurationTimeAction } from '../../../store/@actions-creators/playerActions';
 
 export default function PlayerInfoProgress() {
   const { elapsedTimeInSeconds, audioToPlay, isPlayableAudio, durationOnSeconds } =

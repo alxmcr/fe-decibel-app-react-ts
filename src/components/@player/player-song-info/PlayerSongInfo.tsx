@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlaylistDataContext } from '../../providers/PlaylistProvider/PlaylistContext';
+import { PlaylistDataContext } from '../../../providers/PlaylistProvider/PlaylistContext';
 
 export default function PlayerSongInfo() {
   const { currentSongPlaying } = React.useContext(PlaylistDataContext);

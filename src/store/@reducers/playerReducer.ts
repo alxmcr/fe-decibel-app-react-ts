@@ -31,14 +31,6 @@ export default function playerReducer(state: PlayerState, action: PlayerAction):
       return { ...state, durationOnSeconds: action.payload.durationOnSeconds };
     }
 
-    case 'prev-audio': {
-      return { ...state, audioToPlay: action.payload.prevAudio };
-    }
-
-    case 'next-audio': {
-      return { ...state, audioToPlay: action.payload.nextAudio };
-    }
-
     default: {
       throw Error(`Unknown action`);
     }

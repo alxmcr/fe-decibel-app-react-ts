@@ -1,4 +1,4 @@
-import { formatSecondsToTimeSong } from '../../@helpers/helpers-time';
+import { formatSecondsToTimeSong } from '../../../@helpers/helpers-time';
 
 type Props = {
   className: string;

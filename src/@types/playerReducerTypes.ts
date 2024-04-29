@@ -63,26 +63,10 @@ export type PlayerUpdateDurationTimeAction = {
   };
 };
 
-export type PlayerPrevAudioAction = {
-  type: 'prev-audio';
-  payload: {
-    prevAudio: HTMLAudioElement;
-  };
-};
-
-export type PlayerNextAudioAction = {
-  type: 'next-audio';
-  payload: {
-    nextAudio: HTMLAudioElement;
-  };
-};
-
 export type PlayerAction =
   | PlayerInitialActions
   | PlayerSetAudio
   | PlayerSetIsPlayableAction
   | PlayerUpdateStatusPlayerAction
   | PlayerUpdateDurationTimeAction
-  | PlayerUpdateElapsedTimeAction
-  | PlayerPrevAudioAction
-  | PlayerNextAudioAction;
+  | PlayerUpdateElapsedTimeAction;
