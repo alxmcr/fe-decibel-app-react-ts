@@ -58,12 +58,12 @@ export default function PlayerControls() {
         if (isPlayableAudio) {
           const elapsedTimeOnSeconds = audioToPlay?.currentTime !== undefined ? audioToPlay?.currentTime : 0;
 
-          if (elapsedTimeOnSeconds + 1 < durationOnSeconds) {
-            // Updated
-            updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds + 1);
-          } else if (elapsedTimeOnSeconds === durationOnSeconds) {
+          if (elapsedTimeOnSeconds === durationOnSeconds) {
             console.log('termino la song');
             updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+          } else if (elapsedTimeOnSeconds < durationOnSeconds) {
+            // Updated
+            updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds);
           } else {
             console.log({ elapsedTimeOnSeconds, durationOnSeconds });
           }
