@@ -64,8 +64,6 @@ export default function PlayerControls() {
           } else if (elapsedTimeOnSeconds + 1 < durationOnSeconds) {
             // Updated
             updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds);
-          } else {
-            console.log({ elapsedTimeOnSeconds, durationOnSeconds });
           }
         }
       }
