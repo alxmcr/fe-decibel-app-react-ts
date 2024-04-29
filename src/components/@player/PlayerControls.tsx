@@ -61,7 +61,7 @@ export default function PlayerControls() {
           if (elapsedTimeOnSeconds === durationOnSeconds) {
             console.log('termino la song');
             updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
-          } else if (elapsedTimeOnSeconds < durationOnSeconds) {
+          } else if (elapsedTimeOnSeconds + 1 < durationOnSeconds) {
             // Updated
             updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds);
           } else {
