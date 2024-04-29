@@ -12,7 +12,6 @@ export default function PlayerProgressBar({ durationOnSeconds = 0, elapsedTimeIn
 
   React.useEffect(() => {
     const currentPercentage = getPercentageElapsedTime(elapsedTimeInSeconds, durationOnSeconds);
-    //console.log({ durationOnSeconds, elapsedTimeInSeconds, currentPercentage });
     setPercentageElapsedTime(currentPercentage);
   }, [durationOnSeconds, elapsedTimeInSeconds]);
 
