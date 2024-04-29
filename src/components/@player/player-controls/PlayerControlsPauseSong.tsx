@@ -1,7 +1,7 @@
 import React from 'react';
-import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
-import Icon80x80Pause from '../@icons/80x80/Icon80x80Pause';
-import { pauseAction } from '../../store/@actions-creators/playerActions';
+import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
+import Icon80x80Pause from '../../@icons/80x80/Icon80x80Pause';
+import { pauseAction } from '../../../store/@actions-creators/playerActions';
 
 export default function PlayerControlsPauseSong() {
   const { audioToPlay, isPlayableAudio } = React.useContext(PlayerDataContext);

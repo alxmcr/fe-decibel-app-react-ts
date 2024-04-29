@@ -1,6 +1,6 @@
 import React from 'react';
-import { PlayerStatus } from '../../@enums/appEnums';
-import { PlayerDataContext } from '../../providers/PlayerProvider/PlayerContext';
+import { PlayerStatus } from '../../../@enums/appEnums';
+import { PlayerDataContext } from '../../../providers/PlayerProvider/PlayerContext';
 import PlayerControlsNextSong from './PlayerControlsNextSong';
 import PlayerControlsPauseSong from './PlayerControlsPauseSong';
 import PlayerControlsPlaySong from './PlayerControlsPlaySong';

@@ -2,9 +2,9 @@ import React from 'react';
 import {
   PlaylistDataContext,
   PlaylistDispatchContext,
-} from '../../providers/PlaylistProvider/PlaylistContext';
-import { movePointerPositionAction } from '../../store/@actions-creators/playlistActions';
-import Icon50x50PrevSongFilled from '../@icons/50x50/Icon50x50PrevSongFilled';
+} from '../../../providers/PlaylistProvider/PlaylistContext';
+import { movePointerPositionAction } from '../../../store/@actions-creators/playlistActions';
+import Icon50x50PrevSongFilled from '../../@icons/50x50/Icon50x50PrevSongFilled';
 
 export default function PlayerControlsPrevSong() {
   const { currentPlaylist, pointerPositionSong } = React.useContext(PlaylistDataContext);

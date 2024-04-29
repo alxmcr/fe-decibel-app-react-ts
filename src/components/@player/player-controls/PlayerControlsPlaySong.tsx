@@ -1,12 +1,12 @@
 import React from 'react';
-import { PlayerStatus } from '../../@enums/appEnums';
-import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
+import { PlayerStatus } from '../../../@enums/appEnums';
+import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
 import {
   playAction,
   updateElapsedTimeAction,
   updateStatusPlayerAction,
-} from '../../store/@actions-creators/playerActions';
-import Icon80x80Play from '../@icons/80x80/Icon80x80Play';
+} from '../../../store/@actions-creators/playerActions';
+import Icon80x80Play from '../../@icons/80x80/Icon80x80Play';
 
 export default function PlayerControlsPlaySong() {
   const player = React.useContext(PlayerDataContext);

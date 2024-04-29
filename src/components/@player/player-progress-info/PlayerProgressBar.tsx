@@ -1,6 +1,6 @@
 import React from 'react';
 import PlayerProgressBarElapsedTime from './PlayerProgressBarElapsedTime';
-import { getPercentageElapsedTime } from '../../@helpers/helpers-player';
+import { getPercentageElapsedTime } from '../../../@helpers/helpers-player';
 
 type Props = {
   durationOnSeconds: number;

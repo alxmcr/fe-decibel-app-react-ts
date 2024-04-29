@@ -3,8 +3,8 @@ import { PlayerDataContext, PlayerDispatchContext } from '../../providers/Player
 import { setIsPlayableAction } from '../../store/@actions-creators/playerActions';
 import FooterCardPlayer from './FooterCardPlayer';
 import HeaderCardPlayer from './HeaderCardPlayer';
-import PlayerSongAttribution from './PlayerSongAttribution';
-import PlayerSongInfo from './PlayerSongInfo';
+import PlayerSongAttribution from './player-song-info/PlayerSongAttribution';
+import PlayerSongInfo from './player-song-info/PlayerSongInfo';
 
 export default function CardPlayer() {
   const player = React.useContext(PlayerDataContext);
