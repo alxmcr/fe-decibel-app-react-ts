@@ -1,5 +1,6 @@
 import React from 'react';
 import { PlayerAction } from '../../@types/playerReducerTypes';
+import { PlayerStatus } from '../../@enums/appEnums';
 
 export const playAction = (dispatch: React.Dispatch<PlayerAction>) => {
   dispatch({
@@ -27,6 +28,18 @@ export const setIsPlayableAction = (dispatch: React.Dispatch<PlayerAction>, isPl
     type: 'set-is-playable',
     payload: {
       isPlayable,
+    },
+  });
+};
+
+export const updateStatusPlayerAction = (
+  dispatch: React.Dispatch<PlayerAction>,
+  statusPlayer = PlayerStatus.IDLE,
+) => {
+  dispatch({
+    type: 'update-status-player',
+    payload: {
+      statusPlayer,
     },
   });
 };

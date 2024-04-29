@@ -42,6 +42,13 @@ export type PlayerSetIsPlayableAction = {
   };
 };
 
+export type PlayerUpdateStatusPlayerAction = {
+  type: 'update-status-player';
+  payload: {
+    statusPlayer: PlayerStatus;
+  };
+};
+
 export type PlayerUpdateElapsedTimeAction = {
   type: 'update-elapsed-time';
   payload: {
@@ -74,6 +81,7 @@ export type PlayerAction =
   | PlayerInitialActions
   | PlayerSetAudio
   | PlayerSetIsPlayableAction
+  | PlayerUpdateStatusPlayerAction
   | PlayerUpdateDurationTimeAction
   | PlayerUpdateElapsedTimeAction
   | PlayerPrevAudioAction
