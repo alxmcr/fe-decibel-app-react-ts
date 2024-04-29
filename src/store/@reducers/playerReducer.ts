@@ -23,6 +23,10 @@ export default function playerReducer(state: PlayerState, action: PlayerAction):
       return { ...state, elapsedTimeInSeconds: action.payload.elapsedTimeInSeconds };
     }
 
+    case 'update-duration-time': {
+      return { ...state, durationOnSeconds: action.payload.durationOnSeconds };
+    }
+
     case 'prev-audio': {
       return { ...state, audioToPlay: action.payload.prevAudio };
     }

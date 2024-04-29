@@ -31,11 +31,20 @@ export const setIsPlayableAction = (dispatch: React.Dispatch<PlayerAction>, isPl
   });
 };
 
-export const updateElapsedTime = (dispatch: React.Dispatch<PlayerAction>, elapsedTimeInSeconds = 0) => {
+export const updateElapsedTimeAction = (dispatch: React.Dispatch<PlayerAction>, elapsedTimeInSeconds = 0) => {
   dispatch({
     type: 'update-elapsed-time',
     payload: {
       elapsedTimeInSeconds,
+    },
+  });
+};
+
+export const updateDurationTimeAction = (dispatch: React.Dispatch<PlayerAction>, durationOnSeconds = 0) => {
+  dispatch({
+    type: 'update-duration-time',
+    payload: {
+      durationOnSeconds,
     },
   });
 };
