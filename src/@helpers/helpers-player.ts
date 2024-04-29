@@ -1,5 +1,4 @@
 export const getPercentageElapsedTime = (elapsedTimeInSeconds = 0, durationInSeconds = 0) => {
-  console.log({ elapsedTimeInSeconds, durationInSeconds });
   /*
       100 % - durationInSeconds
       x %   - elapsedTimeInSeconds

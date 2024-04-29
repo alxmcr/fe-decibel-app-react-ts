@@ -1,7 +1,11 @@
 import React from 'react';
 import { PlayerStatus } from '../../@enums/appEnums';
 import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
-import { playAction, setIsPlayableAction } from '../../store/@actions-creators/playerActions';
+import {
+  playAction,
+  setIsPlayableAction,
+  updateElapsedTime,
+} from '../../store/@actions-creators/playerActions';
 import Icon50x50NextSongFilled from '../@icons/50x50/Icon50x50NextSongFilled';
 import Icon50x50PrevSongFilled from '../@icons/50x50/Icon50x50PrevSongFilled';
 import Icon80x80Pause from '../@icons/80x80/Icon80x80Pause';
@@ -22,13 +26,38 @@ export default function PlayerControls() {
   const prevSong = () => {};
   const nextSong = () => {};
 
+  // Loaded audio data
   React.useEffect(() => {
-    if (audioToPlay !== null) {
-      audioToPlay.addEventListener('loadeddata', () => {
-        setIsPlayableAction(dispatchPlayer, true);
-      });
-    }
+    const handleIsPlayable = () => {
+      setIsPlayableAction(dispatchPlayer, true);
+    };
+
+    audioToPlay?.addEventListener('loadeddata', handleIsPlayable);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      audioToPlay?.removeEventListener('loadeddata', handleIsPlayable);
+    };
   }, [audioToPlay, dispatchPlayer]);
+
+  // update elapsedTime
+  React.useEffect(() => {
+    const handleTimeUpdate = () => {
+      // Updated
+      updateElapsedTime(dispatchPlayer, audioToPlay?.currentTime);
+    };
+
+    audioToPlay?.addEventListener('timeupdate', handleTimeUpdate);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      audioToPlay?.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [audioToPlay, dispatchPlayer]);
+
+  if (audioToPlay === null || audioToPlay === undefined) {
+    return null;
+  }
 
   return (
     <div className="flex items-center justify-center gap-8 border">
