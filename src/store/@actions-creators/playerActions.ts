@@ -1,5 +1,6 @@
 import React from 'react';
 import { PlayerAction } from '../../@types/playerReducerTypes';
+import { PlayerStatus } from '../../@enums/appEnums';
 
 export const playAction = (dispatch: React.Dispatch<PlayerAction>) => {
   dispatch({
@@ -31,11 +32,23 @@ export const setIsPlayableAction = (dispatch: React.Dispatch<PlayerAction>, isPl
   });
 };
 
+export const updateStatusPlayerAction = (
+  dispatch: React.Dispatch<PlayerAction>,
+  statusPlayer = PlayerStatus.IDLE,
+) => {
+  dispatch({
+    type: 'update-status-player',
+    payload: {
+      statusPlayer,
+    },
+  });
+};
+
 export const updateElapsedTimeAction = (dispatch: React.Dispatch<PlayerAction>, elapsedTimeInSeconds = 0) => {
   dispatch({
     type: 'update-elapsed-time',
     payload: {
-      elapsedTimeInSeconds,
+      elapsedTimeInSeconds: Math.floor(elapsedTimeInSeconds),
     },
   });
 };
@@ -44,7 +57,7 @@ export const updateDurationTimeAction = (dispatch: React.Dispatch<PlayerAction>,
   dispatch({
     type: 'update-duration-time',
     payload: {
-      durationOnSeconds,
+      durationOnSeconds: Math.floor(durationOnSeconds),
     },
   });
 };

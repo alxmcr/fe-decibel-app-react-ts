@@ -6,6 +6,7 @@ import {
   playAction,
   setIsPlayableAction,
   updateElapsedTimeAction,
+  updateStatusPlayerAction,
 } from '../../store/@actions-creators/playerActions';
 import Icon50x50NextSongFilled from '../@icons/50x50/Icon50x50NextSongFilled';
 import Icon50x50PrevSongFilled from '../@icons/50x50/Icon50x50PrevSongFilled';
@@ -13,7 +14,8 @@ import Icon80x80Pause from '../@icons/80x80/Icon80x80Pause';
 import Icon80x80Play from '../@icons/80x80/Icon80x80Play';
 
 export default function PlayerControls() {
-  const { audioToPlay, statusPlayer, isPlayableAudio } = React.useContext(PlayerDataContext);
+  const { audioToPlay, statusPlayer, isPlayableAudio, durationOnSeconds } =
+    React.useContext(PlayerDataContext);
   const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
   const playSong = () => {
@@ -52,8 +54,23 @@ export default function PlayerControls() {
   // update elapsedTime
   React.useEffect(() => {
     const handleTimeUpdate = () => {
-      // Updated
-      updateElapsedTimeAction(dispatchPlayer, audioToPlay?.currentTime);
+      if (PlayerStatus.NOW_PLAYING === statusPlayer) {
+        if (isPlayableAudio) {
+          if (audioToPlay !== null && audioToPlay !== undefined) {
+            const { currentTime } = audioToPlay;
+            const elapsedTimeOnSeconds = currentTime !== undefined ? Math.floor(currentTime) : 0;
+
+            if (elapsedTimeOnSeconds <= durationOnSeconds) {
+              // Updated elapsed time
+              updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds);
+              // End song
+              if (elapsedTimeOnSeconds === durationOnSeconds) {
+                updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+              }
+            }
+          }
+        }
+      }
     };
 
     audioToPlay?.addEventListener('timeupdate', handleTimeUpdate);
@@ -62,7 +79,7 @@ export default function PlayerControls() {
     return () => {
       audioToPlay?.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [audioToPlay, dispatchPlayer]);
+  }, [audioToPlay, dispatchPlayer, durationOnSeconds, isPlayableAudio, statusPlayer]);
 
   if (audioToPlay === null || audioToPlay === undefined) {
     return null;
