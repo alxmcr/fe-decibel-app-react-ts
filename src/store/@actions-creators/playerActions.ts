@@ -48,7 +48,7 @@ export const updateElapsedTimeAction = (dispatch: React.Dispatch<PlayerAction>, 
   dispatch({
     type: 'update-elapsed-time',
     payload: {
-      elapsedTimeInSeconds,
+      elapsedTimeInSeconds: Math.floor(elapsedTimeInSeconds),
     },
   });
 };
@@ -57,7 +57,7 @@ export const updateDurationTimeAction = (dispatch: React.Dispatch<PlayerAction>,
   dispatch({
     type: 'update-duration-time',
     payload: {
-      durationOnSeconds,
+      durationOnSeconds: Math.floor(durationOnSeconds),
     },
   });
 };

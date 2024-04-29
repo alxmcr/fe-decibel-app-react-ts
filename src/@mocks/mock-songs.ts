@@ -65,7 +65,7 @@ export const vbmSong: SongData = {
   name: 'VBM (Ft. P-One)',
   singer: 'Wiguez, P-One',
   duration: '02:15',
-  songMP3Url: '/audios/Wiguez - VBM (Ft. P-One) [NCS Release].mp3',
+  songMP3Url: '/audios/test-short-audio.mp3',
   albumCoverUrl: '/albums-covers/vbm-by-wiguez.jpg',
   attribution: {
     songName: 'Wiguez - VBM (Ft. P-One) [NCS Release]',
