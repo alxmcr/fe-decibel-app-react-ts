@@ -15,7 +15,7 @@ import {
   movePointerPositionAction,
   selectSongToPlayAction,
 } from '../../store/@actions-creators/playlistActions';
-import SoundBarsAnimation from '../@animations/SoundBarsAnimation';
+import BoxSoundBarsAnimation from '../@animations/BoxSoundBarsAnimation';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -24,7 +24,7 @@ type Props = {
 export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
   const { audioToPlay } = React.useContext(PlayerDataContext);
-  const { currentSongPlaying } = React.useContext(PlaylistDataContext);
+  const { currentSongPlaying, pointerPositionSong } = React.useContext(PlaylistDataContext);
   const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
   const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
@@ -67,7 +67,7 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
         </div>
       </div>
       <div className="flex items-center gap-8">
-        <SoundBarsAnimation />
+        {songInPlaylist.position === pointerPositionSong ? <BoxSoundBarsAnimation /> : null}
         <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
       </div>
     </li>
