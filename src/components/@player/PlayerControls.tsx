@@ -30,6 +30,16 @@ export default function PlayerControls() {
     }
   }, [audioToPlay, dispatchPlayer]);
 
+  React.useEffect(() => {
+    console.log('hola!!');
+    if (audioToPlay !== null) {
+      audioToPlay.addEventListener('timeupdate', () => {
+        // Calculate the progress percentage
+        console.log('🚀 ~ audioToPlay.addEventListener ~ progress:', audioToPlay.currentTime);
+      });
+    }
+  }, [audioToPlay]);
+
   return (
     <div className="flex items-center justify-center gap-8 border">
       <button className="text-perano-300" onClick={prevSong}>
