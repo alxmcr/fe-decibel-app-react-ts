@@ -21,6 +21,7 @@ export type PlayerState = {
   audioToPlay: HTMLAudioElement | null;
   isPlayableAudio: boolean;
   elapsedTimeInSeconds: number;
+  durationOnSeconds: number;
 };
 
 export type PlayerInitialActions = {
@@ -48,6 +49,13 @@ export type PlayerUpdateElapsedTimeAction = {
   };
 };
 
+export type PlayerUpdateDurationTimeAction = {
+  type: 'update-duration-time';
+  payload: {
+    durationOnSeconds: number;
+  };
+};
+
 export type PlayerPrevAudioAction = {
   type: 'prev-audio';
   payload: {
@@ -66,6 +74,7 @@ export type PlayerAction =
   | PlayerInitialActions
   | PlayerSetAudio
   | PlayerSetIsPlayableAction
+  | PlayerUpdateDurationTimeAction
   | PlayerUpdateElapsedTimeAction
   | PlayerPrevAudioAction
   | PlayerNextAudioAction;

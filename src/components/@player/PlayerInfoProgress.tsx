@@ -1,11 +1,13 @@
 import React from 'react';
-import { PlayerDataContext } from '../../providers/PlayerProvider/PlayerContext';
+import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import PlayerChronometer from './PlayerChronometer';
 import PlayerProgressBar from './PlayerProgressBar';
+import { updateDurationTimeAction } from '../../store/@actions-creators/playerActions';
 
 export default function PlayerInfoProgress() {
-  const { elapsedTimeInSeconds, audioToPlay, isPlayableAudio } = React.useContext(PlayerDataContext);
-  const [durationOnSeconds, setDurationOnSeconds] = React.useState(0);
+  const { elapsedTimeInSeconds, audioToPlay, isPlayableAudio, durationOnSeconds } =
+    React.useContext(PlayerDataContext);
+  const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
   // update duration data
   React.useEffect(() => {
@@ -14,11 +16,11 @@ export default function PlayerInfoProgress() {
         const { duration } = audioToPlay;
 
         if (!isNaN(duration)) {
-          setDurationOnSeconds(duration);
+          updateDurationTimeAction(dispatchPlayer, duration);
         }
       }
     }
-  }, [isPlayableAudio, audioToPlay]);
+  }, [isPlayableAudio, audioToPlay, dispatchPlayer]);
 
   return (
     <div className="flex flex-col gap-2 border">
