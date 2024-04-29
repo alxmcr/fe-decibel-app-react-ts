@@ -56,15 +56,17 @@ export default function PlayerControls() {
     const handleTimeUpdate = () => {
       if (PlayerStatus.NOW_PLAYING === statusPlayer) {
         if (isPlayableAudio) {
-          const elapsedTimeOnSeconds =
-            audioToPlay?.currentTime !== undefined ? Math.floor(audioToPlay?.currentTime) : 0;
+          if (audioToPlay !== null && audioToPlay !== undefined) {
+            const { currentTime } = audioToPlay;
+            const elapsedTimeOnSeconds = currentTime !== undefined ? Math.floor(currentTime) : 0;
 
-          if (elapsedTimeOnSeconds <= durationOnSeconds) {
-            // Updated
-            updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds);
-            // End song
-            if (elapsedTimeOnSeconds === durationOnSeconds) {
-              updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+            if (elapsedTimeOnSeconds <= durationOnSeconds) {
+              // Updated elapsed time
+              updateElapsedTimeAction(dispatchPlayer, elapsedTimeOnSeconds);
+              // End song
+              if (elapsedTimeOnSeconds === durationOnSeconds) {
+                updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+              }
             }
           }
         }
