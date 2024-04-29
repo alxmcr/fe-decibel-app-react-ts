@@ -8,8 +8,13 @@ import {
   movePointerPositionAction,
   selectSongToPlayAction,
 } from '../../store/@actions-creators/playlistActions';
-import { setIsPlayableAction } from '../../store/@actions-creators/playerActions';
-import { PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
+import {
+  setIsPlayableAction,
+  updateElapsedTimeAction,
+  updateStatusPlayerAction,
+} from '../../store/@actions-creators/playerActions';
+import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
+import { PlayerStatus } from '../../@enums/appEnums';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -17,15 +22,23 @@ type Props = {
 
 export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
+  const { audioToPlay } = React.useContext(PlayerDataContext);
   const { currentSongPlaying } = React.useContext(PlaylistDataContext);
   const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
   const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
   const selectSongToPlay = () => {
-    selectSongToPlayAction(dispatchPlaylist, songInPlaylist);
-    setIsPlayableAction(dispatchPlayer, false);
-    // Move pointer
-    movePointerPositionAction(dispatchPlaylist, songInPlaylist.position);
+    if (audioToPlay !== null && audioToPlay !== undefined) {
+      setIsPlayableAction(dispatchPlayer, false);
+      // Reset song
+      audioToPlay.pause();
+      updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+      updateElapsedTimeAction(dispatchPlayer, 0);
+      // Select another song
+      selectSongToPlayAction(dispatchPlaylist, songInPlaylist);
+      // Move pointer
+      movePointerPositionAction(dispatchPlaylist, songInPlaylist.position);
+    }
   };
 
   React.useEffect(() => {
