@@ -15,7 +15,7 @@ import {
 } from '../../store/@actions-creators/playerActions';
 import { PlayerDataContext, PlayerDispatchContext } from '../../providers/PlayerProvider/PlayerContext';
 import { PlayerStatus } from '../../@enums/appEnums';
-import SoundWaveAnimation from '../@animations/SoundWaveAnimation';
+import SoundBarsAnimation from '../@animations/SoundBarsAnimation';
 
 type Props = {
   songInPlaylist: SongInPlaylistData;
@@ -67,7 +67,7 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <SoundWaveAnimation />
+        <SoundBarsAnimation />
         <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
       </div>
     </li>
