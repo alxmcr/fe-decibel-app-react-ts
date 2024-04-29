@@ -5,7 +5,7 @@ import {
   pauseAction,
   playAction,
   setIsPlayableAction,
-  updateElapsedTime,
+  updateElapsedTimeAction,
 } from '../../store/@actions-creators/playerActions';
 import Icon50x50NextSongFilled from '../@icons/50x50/Icon50x50NextSongFilled';
 import Icon50x50PrevSongFilled from '../@icons/50x50/Icon50x50PrevSongFilled';
@@ -53,7 +53,7 @@ export default function PlayerControls() {
   React.useEffect(() => {
     const handleTimeUpdate = () => {
       // Updated
-      updateElapsedTime(dispatchPlayer, audioToPlay?.currentTime);
+      updateElapsedTimeAction(dispatchPlayer, audioToPlay?.currentTime);
     };
 
     audioToPlay?.addEventListener('timeupdate', handleTimeUpdate);
