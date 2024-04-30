@@ -56,6 +56,7 @@ export default function PlaylistProvider({ children }: Props) {
       if (playlist !== null && playlist !== undefined) {
         const { songs } = playlist;
         const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+        console.log("🚀 ~ React.useEffect ~ totalSongsOnPlaylist:", totalSongsOnPlaylist)
 
         if (totalSongsOnPlaylist > 0) {
           movePointerPositionAction(dispatch, 1);
