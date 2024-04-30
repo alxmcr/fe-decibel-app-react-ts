@@ -1,10 +1,11 @@
 import React from 'react';
-import Icon30x30Playlist from '../@icons/30x30/Icon30x30Playlist';
+import { DialogPlaylistActionsContext } from '../../providers/DialogPlaylistProvider/DialogPlaylistContext';
 import { PlayerDataContext } from '../../providers/PlayerProvider/PlayerContext';
+import Icon30x30Playlist from '../@icons/30x30/Icon30x30Playlist';
 
 export default function HeaderCardPlayer() {
   const { statusPlayer } = React.useContext(PlayerDataContext);
-  const openDialogPlaylist = () => {};
+  const { openDialogPlaylist } = React.useContext(DialogPlaylistActionsContext);
 
   return (
     <header className="relative flex h-[110px] items-center justify-center border p-2">
