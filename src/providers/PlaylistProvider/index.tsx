@@ -5,6 +5,8 @@ import {
   errorFetchingPlaylistAction,
   idleFetchingPlaylistAction,
   initFetchingPlaylistAction,
+  movePointerPositionAction,
+  selectSongToPlayAction,
   successFetchingPlaylistAction,
 } from '../../store/@actions-creators/playlistActions';
 import playlistReducer from '../../store/@reducers/playlistReducer';
@@ -34,6 +36,14 @@ export default function PlaylistProvider({ children }: Props) {
       case LoadingStates.SUCCESS: {
         if (playlist !== null && playlist !== undefined) {
           successFetchingPlaylistAction(dispatch, playlist);
+          // first song
+          const { songs } = playlist;
+          const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+          console.log('🚀 ~ React.useEffect ~ totalSongsOnPlaylist:', totalSongsOnPlaylist);
+
+          if (totalSongsOnPlaylist > 0) {
+            movePointerPositionAction(dispatch, 1);
+          }
         }
         break;
       }
@@ -48,6 +58,26 @@ export default function PlaylistProvider({ children }: Props) {
         throw Error(`Playlist status is invalid ${statusPlaylist}`);
     }
   }, [playlist, errorPlaylist, statusPlaylist]);
+
+  React.useEffect(() => {
+    if (playlist !== null && playlist !== undefined) {
+      successFetchingPlaylistAction(dispatch, playlist);
+      // first song
+      const { songs } = playlist;
+      const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+
+      if (totalSongsOnPlaylist > 0) {
+        if (playlistState.pointerPositionSong - 1 <= totalSongsOnPlaylist) {
+          const song = songs[playlistState.pointerPositionSong - 1];
+          console.log('🚀 ~ React.useEffect ~ song:', song);
+
+          if (song !== null && song !== undefined) {
+            selectSongToPlayAction(dispatch, song);
+          }
+        }
+      }
+    }
+  }, [playlistState.pointerPositionSong, playlist]);
 
   return (
     <PlaylistDataContext.Provider value={playlistState}>
