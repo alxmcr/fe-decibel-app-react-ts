@@ -4,7 +4,7 @@ export const aiSong: SongData = {
   id: 'song-001',
   name: 'AI',
   singer: 'Max Brhon',
-  duration: '05:78',
+  duration: '03:09',
   songMP3Url: '/audios/Max Brhon - AI [NCS Release].mp3',
   albumCoverUrl: '/albums-covers/ai-max-brhon.jpg',
   attribution: {
@@ -19,7 +19,7 @@ export const onYourMindSong: SongData = {
   id: 'song-002',
   name: 'On Your Mind',
   singer: 'Ripple',
-  duration: '05:78',
+  duration: '03:03',
   songMP3Url: '/audios/Max Brhon - AI [NCS Release].mp3',
   albumCoverUrl: '/albums-covers/on-your-mind-by-ripple.jpg',
   attribution: {
@@ -49,7 +49,7 @@ export const thoughtItWasUSong: SongData = {
   id: 'song-004',
   name: 'Thought It Was U',
   singer: 'JJL',
-  duration: '03:05',
+  duration: '03:06',
   songMP3Url: '/audios/JJL - Thought It Was U [NCS Release].mp3',
   albumCoverUrl: '/albums-covers/thought-it-was-by-jjl.jpg',
   attribution: {
@@ -64,7 +64,7 @@ export const vbmSong: SongData = {
   id: 'song-005',
   name: 'VBM (Ft. P-One)',
   singer: 'Wiguez, P-One',
-  duration: '02:15',
+  duration: '02:16',
   songMP3Url: '/audios/test-short-audio.mp3',
   albumCoverUrl: '/albums-covers/vbm-by-wiguez.jpg',
   attribution: {
@@ -109,7 +109,7 @@ export const flySong: SongData = {
   id: 'song-008',
   name: 'Fly',
   singer: 'JaySounds, Kage',
-  duration: '03:44',
+  duration: '03:45',
   songMP3Url: '/audios/Kage & JaySounds - Fly [NCS Release].mp3',
   albumCoverUrl: '/albums-covers/fly-by-jaysounds-kage.jpg',
   attribution: {
