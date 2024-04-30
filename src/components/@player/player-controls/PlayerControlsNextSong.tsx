@@ -9,7 +9,10 @@ import {
 } from '../../../store/@actions-creators/playlistActions';
 import Icon50x50NextSongFilled from '../../@icons/50x50/Icon50x50NextSongFilled';
 import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
-import { updateStatusPlayerAction } from '../../../store/@actions-creators/playerActions';
+import {
+  setIsPlayableAction,
+  updateStatusPlayerAction,
+} from '../../../store/@actions-creators/playerActions';
 import { PlayerStatus } from '../../../@enums/appEnums';
 
 export default function PlayerControlsNextSong() {
@@ -25,6 +28,7 @@ export default function PlayerControlsNextSong() {
       if (pointerPositionSong < totalSongsOnPlaylist) {
         audioToPlay?.pause();
         updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+        setIsPlayableAction(dispatchPlayer, false);
 
         // move pointer
         const songs = currentPlaylist.songs;

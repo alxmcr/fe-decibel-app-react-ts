@@ -9,7 +9,7 @@ import {
   selectSongToPlayAction,
 } from '../../../store/@actions-creators/playlistActions';
 import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
-import { updateStatusPlayerAction } from '../../../store/@actions-creators/playerActions';
+import { setIsPlayableAction, updateStatusPlayerAction } from '../../../store/@actions-creators/playerActions';
 import { PlayerStatus } from '../../../@enums/appEnums';
 
 export default function PlayerControlsPrevSong() {
@@ -23,6 +23,7 @@ export default function PlayerControlsPrevSong() {
       if (pointerPositionSong - 1 > 0) {
         audioToPlay?.pause();
         updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+        setIsPlayableAction(dispatchPlayer, false);
 
         // move pointer
         const songs = currentPlaylist.songs;
