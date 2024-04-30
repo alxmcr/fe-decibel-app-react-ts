@@ -39,7 +39,6 @@ export default function PlaylistProvider({ children }: Props) {
           // first song
           const { songs } = playlist;
           const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
-          console.log('🚀 ~ React.useEffect ~ totalSongsOnPlaylist:', totalSongsOnPlaylist);
 
           if (totalSongsOnPlaylist > 0) {
             movePointerPositionAction(dispatch, 1);
@@ -69,7 +68,6 @@ export default function PlaylistProvider({ children }: Props) {
       if (totalSongsOnPlaylist > 0) {
         if (playlistState.pointerPositionSong - 1 <= totalSongsOnPlaylist) {
           const song = songs[playlistState.pointerPositionSong - 1];
-          console.log('🚀 ~ React.useEffect ~ song:', song);
 
           if (song !== null && song !== undefined) {
             selectSongToPlayAction(dispatch, song);
