@@ -1,5 +1,5 @@
 import { SongInPlaylistData } from '../../@types/serviceTypes';
-import PlaylistSongListItem from '../@playlist-dialog/PlaylistSongListItem';
+import PlaylistSongListItem from './PlaylistSongListItem';
 
 type Props = {
   songsInPlaylist: SongInPlaylistData[];
