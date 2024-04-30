@@ -24,7 +24,7 @@ type Props = {
 export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   const [isSelectedToPlay, setIsSelectedToPlay] = React.useState(false);
   const { audioToPlay } = React.useContext(PlayerDataContext);
-  const { currentSongPlaying, pointerPositionSong } = React.useContext(PlaylistDataContext);
+  const { pointerPositionSong } = React.useContext(PlaylistDataContext);
   const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
   const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
@@ -43,8 +43,8 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
   };
 
   React.useEffect(() => {
-    setIsSelectedToPlay(currentSongPlaying?.id === songInPlaylist.id);
-  }, [songInPlaylist.id, currentSongPlaying?.id]);
+    setIsSelectedToPlay(songInPlaylist.position === pointerPositionSong);
+  }, [pointerPositionSong, songInPlaylist.position]);
 
   if (songInPlaylist === null || songInPlaylist === undefined) {
     return null;
@@ -68,7 +68,10 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
       </div>
       <div className="flex items-center gap-8">
         {songInPlaylist.position === pointerPositionSong ? <BoxSoundBarsAnimation /> : null}
-        <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
+        <p className="text-[0.85rem]">
+          {songInPlaylist.duration} ({songInPlaylist.position}, {pointerPositionSong},{' '}
+          {songInPlaylist.position === pointerPositionSong ? 'T' : 'F'})
+        </p>
       </div>
     </li>
   );

@@ -6,5 +6,9 @@ import SoundBarsAnimation from './SoundBarsAnimation';
 export default function BoxSoundBarsAnimation() {
   const { statusPlayer } = React.useContext(PlayerDataContext);
 
-  return <div>{PlayerStatus.NOW_PLAYING === statusPlayer ? <SoundBarsAnimation /> : null}</div>;
+  return (
+    <div className="text-perano-500">
+      {PlayerStatus.NOW_PLAYING === statusPlayer ? <SoundBarsAnimation /> : null}
+    </div>
+  );
 }
