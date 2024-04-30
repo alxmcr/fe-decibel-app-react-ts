@@ -3,7 +3,10 @@ import {
   PlaylistDataContext,
   PlaylistDispatchContext,
 } from '../../../providers/PlaylistProvider/PlaylistContext';
-import { movePointerPositionAction } from '../../../store/@actions-creators/playlistActions';
+import {
+  movePointerPositionAction,
+  selectSongToPlayAction
+} from '../../../store/@actions-creators/playlistActions';
 import Icon50x50NextSongFilled from '../../@icons/50x50/Icon50x50NextSongFilled';
 
 export default function PlayerControlsNextSong() {
@@ -13,15 +16,23 @@ export default function PlayerControlsNextSong() {
   const nextSong = () => {
     console.log('next song');
 
-    const totalSongs = currentPlaylist.songs.length;
+    const totalSongsOnPlaylist = currentPlaylist.songs.length;
 
-    if (pointerPositionSong + 1 <= totalSongs) {
+    if (pointerPositionSong <= totalSongsOnPlaylist) {
+      const songs = currentPlaylist.songs;
+      const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+
       movePointerPositionAction(dispatchPlaylist, pointerPositionSong + 1);
-      console.log('🚀 ~ nextSong ~ pointerPositionSong:', pointerPositionSong);
+
+      if (totalSongsOnPlaylist > 0) {
+        const song = currentPlaylist.songs[pointerPositionSong];
+
+        if (song !== null && song !== undefined) {
+          selectSongToPlayAction(dispatchPlaylist, song);
+        }
+      }
     }
   };
-
-  React.useEffect(() => {}, [pointerPositionSong]);
 
   return (
     <button className="text-perano-300" onClick={nextSong}>
