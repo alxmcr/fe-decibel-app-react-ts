@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoadingStates } from '../@enums/appEnums';
-import PlayerContainer from '../components/@player-container/PlayerContainer';
+import DialogPlaylist from '../components/@playlist-dialog/DialogPlaylist';
 import { PlaylistDataContext } from '../providers/PlaylistProvider/PlaylistContext';
 
 export default function LayoutHomePage() {
@@ -25,7 +25,7 @@ export default function LayoutHomePage() {
 
   return (
     <main className="flex h-screen items-center justify-center gap-2 bg-perano-200">
-      <PlayerContainer />
+      <DialogPlaylist />
     </main>
   );
 }

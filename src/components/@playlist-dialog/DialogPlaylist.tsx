@@ -6,11 +6,8 @@ export default function DialogPlaylist() {
   const dialogRef = React.useContext(DialogPlaylistRefContext);
 
   return (
-    <article
-      className="flex h-[660px] w-[310px] flex-col justify-between gap-4 rounded-lg border bg-white md:h-[700px] md:w-[360px]"
-      ref={dialogRef}
-    >
+    <dialog className="absolute rounded-lg bg-light-50 backdrop:bg-black/50" open ref={dialogRef}>
       <CardPlaylist />
-    </article>
+    </dialog>
   );
 }
