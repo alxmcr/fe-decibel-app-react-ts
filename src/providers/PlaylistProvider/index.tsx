@@ -6,7 +6,8 @@ import {
   idleFetchingPlaylistAction,
   initFetchingPlaylistAction,
   movePointerPositionAction,
-  successFetchingPlaylistAction
+  selectSongToPlayAction,
+  successFetchingPlaylistAction,
 } from '../../store/@actions-creators/playlistActions';
 import playlistReducer from '../../store/@reducers/playlistReducer';
 import { initialPlaylistData } from '../../store/reducers-initializers';
@@ -63,7 +64,24 @@ export default function PlaylistProvider({ children }: Props) {
         }
       }
     }
-  }, [playlist, pointerPositionSong, statusPlaylist]);
+  }, [playlist, statusPlaylist]);
+
+  // Update current song by pointer
+  React.useEffect(() => {
+    if (playlist !== null && playlist !== undefined) {
+      const { songs } = playlist;
+      const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+
+      if (totalSongsOnPlaylist > 0) {
+        if (pointerPositionSong <= totalSongsOnPlaylist) {
+          const song = songs[pointerPositionSong];
+          if (song !== null && song !== undefined) {
+            selectSongToPlayAction(dispatch, song);
+          }
+        }
+      }
+    }
+  }, [pointerPositionSong, playlist]);
 
   return (
     <PlaylistDataContext.Provider value={playlistState}>
