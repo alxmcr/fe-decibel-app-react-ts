@@ -5,7 +5,8 @@ import {
   errorFetchingPlaylistAction,
   idleFetchingPlaylistAction,
   initFetchingPlaylistAction,
-  successFetchingPlaylistAction,
+  movePointerPositionAction,
+  successFetchingPlaylistAction
 } from '../../store/@actions-creators/playlistActions';
 import playlistReducer from '../../store/@reducers/playlistReducer';
 import { initialPlaylistData } from '../../store/reducers-initializers';
@@ -19,6 +20,7 @@ export default function PlaylistProvider({ children }: Props) {
   const idPlaylist = 'playlist-001';
   const { playlist, errorPlaylist, statusPlaylist } = usePlaylist(idPlaylist);
   const [playlistState, dispatch] = React.useReducer(playlistReducer, initialPlaylistData);
+  const { pointerPositionSong } = React.useContext(PlaylistDataContext);
 
   // Load playlist data by id
   React.useEffect(() => {
@@ -48,6 +50,20 @@ export default function PlaylistProvider({ children }: Props) {
         throw Error(`Playlist status is invalid ${statusPlaylist}`);
     }
   }, [playlist, errorPlaylist, statusPlaylist]);
+
+  // Select first song
+  React.useEffect(() => {
+    if (LoadingStates.SUCCESS === statusPlaylist) {
+      if (playlist !== null && playlist !== undefined) {
+        const { songs } = playlist;
+        const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+
+        if (totalSongsOnPlaylist > 0) {
+          movePointerPositionAction(dispatch, 1);
+        }
+      }
+    }
+  }, [playlist, pointerPositionSong, statusPlaylist]);
 
   return (
     <PlaylistDataContext.Provider value={playlistState}>
