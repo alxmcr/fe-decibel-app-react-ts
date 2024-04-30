@@ -1,6 +1,12 @@
 import { PlaylistAction } from '../../@types/playlistReducerTypes';
 import { PlaylistData, SongInPlaylistData } from '../../@types/serviceTypes';
 
+export const idleFetchingPlaylistAction = (dispatch: React.Dispatch<PlaylistAction>) => {
+  dispatch({
+    type: 'idle-fetching-playlist',
+  });
+};
+
 export const initFetchingPlaylistAction = (dispatch: React.Dispatch<PlaylistAction>) => {
   dispatch({
     type: 'init-fetching-playlist',
