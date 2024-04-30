@@ -3,6 +3,7 @@ import { LoadingStates } from '../../@enums/appEnums';
 import usePlaylist from '../../hooks/usePlaylist';
 import {
   errorFetchingPlaylistAction,
+  idleFetchingPlaylistAction,
   initFetchingPlaylistAction,
   successFetchingPlaylistAction,
 } from '../../store/@actions-creators/playlistActions';
@@ -22,6 +23,10 @@ export default function PlaylistProvider({ children }: Props) {
   // Load playlist data by id
   React.useEffect(() => {
     switch (statusPlaylist) {
+      case LoadingStates.IDLE: {
+        idleFetchingPlaylistAction(dispatch);
+        break;
+      }
       case LoadingStates.PENDING: {
         initFetchingPlaylistAction(dispatch);
         break;
@@ -40,7 +45,7 @@ export default function PlaylistProvider({ children }: Props) {
       }
 
       default:
-        throw Error('Playlist status is invalid');
+        throw Error(`Playlist status is invalid ${statusPlaylist}`);
     }
   }, [playlist, errorPlaylist, statusPlaylist]);
 

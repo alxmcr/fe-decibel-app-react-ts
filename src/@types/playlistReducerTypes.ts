@@ -13,6 +13,10 @@ export type PlaylistState = {
   pointerPositionSong: number;
 };
 
+export type PlaylistIdleFetchingAction = {
+  type: 'idle-fetching-playlist';
+};
+
 export type PlaylistInitFetchingAction = {
   type: 'init-fetching-playlist';
 };
@@ -32,6 +36,7 @@ export type PlaylistErrorFetchingAction = {
 };
 
 export type PlaylistFetchingActions =
+  | PlaylistIdleFetchingAction
   | PlaylistInitFetchingAction
   | PlaylistSuccessFetchingAction
   | PlaylistErrorFetchingAction;

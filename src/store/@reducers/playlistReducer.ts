@@ -3,6 +3,10 @@ import { PlaylistAction, PlaylistState } from '../../@types/playlistReducerTypes
 
 export default function playlistReducer(state: PlaylistState, action: PlaylistAction): PlaylistState {
   switch (action.type) {
+    case 'idle-fetching-playlist': {
+      return { ...state, statusPlaylist: LoadingStates.IDLE };
+    }
+
     case 'init-fetching-playlist': {
       return { ...state, statusPlaylist: LoadingStates.PENDING };
     }
