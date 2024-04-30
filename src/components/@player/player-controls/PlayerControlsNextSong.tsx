@@ -8,27 +8,36 @@ import {
   selectSongToPlayAction,
 } from '../../../store/@actions-creators/playlistActions';
 import Icon50x50NextSongFilled from '../../@icons/50x50/Icon50x50NextSongFilled';
+import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
+import { updateStatusPlayerAction } from '../../../store/@actions-creators/playerActions';
+import { PlayerStatus } from '../../../@enums/appEnums';
 
 export default function PlayerControlsNextSong() {
   const { pointerPositionSong, currentPlaylist } = React.useContext(PlaylistDataContext);
   const dispatchPlaylist = React.useContext(PlaylistDispatchContext);
+  const { audioToPlay } = React.useContext(PlayerDataContext);
+  const dispatchPlayer = React.useContext(PlayerDispatchContext);
 
   const nextSong = () => {
-    console.log('next song');
+    if (audioToPlay !== null && audioToPlay !== undefined) {
+      const totalSongsOnPlaylist = currentPlaylist.songs.length;
 
-    const totalSongsOnPlaylist = currentPlaylist.songs.length;
+      if (pointerPositionSong < totalSongsOnPlaylist) {
+        audioToPlay?.pause();
+        updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
 
-    if (pointerPositionSong < totalSongsOnPlaylist) {
-      const songs = currentPlaylist.songs;
-      const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+        // move pointer
+        const songs = currentPlaylist.songs;
+        const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
 
-      movePointerPositionAction(dispatchPlaylist, pointerPositionSong + 1);
+        movePointerPositionAction(dispatchPlaylist, pointerPositionSong + 1);
 
-      if (totalSongsOnPlaylist > 0) {
-        const song = currentPlaylist.songs[pointerPositionSong];
+        if (totalSongsOnPlaylist > 0) {
+          const song = currentPlaylist.songs[pointerPositionSong];
 
-        if (song !== null && song !== undefined) {
-          selectSongToPlayAction(dispatchPlaylist, song);
+          if (song !== null && song !== undefined) {
+            selectSongToPlayAction(dispatchPlaylist, song);
+          }
         }
       }
     }
