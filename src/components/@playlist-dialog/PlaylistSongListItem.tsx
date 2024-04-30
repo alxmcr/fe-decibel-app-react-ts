@@ -68,10 +68,7 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
       </div>
       <div className="flex items-center gap-8">
         {songInPlaylist.position === pointerPositionSong ? <BoxSoundBarsAnimation /> : null}
-        <p className="text-[0.85rem]">
-          {songInPlaylist.duration} ({songInPlaylist.position}, {pointerPositionSong},{' '}
-          {songInPlaylist.position === pointerPositionSong ? 'T' : 'F'})
-        </p>
+        <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
       </div>
     </li>
   );
