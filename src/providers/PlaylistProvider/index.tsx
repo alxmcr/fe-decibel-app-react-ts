@@ -35,6 +35,14 @@ export default function PlaylistProvider({ children }: Props) {
       case LoadingStates.SUCCESS: {
         if (playlist !== null && playlist !== undefined) {
           successFetchingPlaylistAction(dispatch, playlist);
+          // first song
+          const { songs } = playlist;
+          const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
+          console.log('🚀 ~ React.useEffect ~ totalSongsOnPlaylist:', totalSongsOnPlaylist);
+
+          if (totalSongsOnPlaylist > 0) {
+            movePointerPositionAction(dispatch, 1);
+          }
         }
         break;
       }
@@ -49,21 +57,6 @@ export default function PlaylistProvider({ children }: Props) {
         throw Error(`Playlist status is invalid ${statusPlaylist}`);
     }
   }, [playlist, errorPlaylist, statusPlaylist]);
-
-  // Select first song
-  React.useEffect(() => {
-    if (LoadingStates.SUCCESS === statusPlaylist) {
-      if (playlist !== null && playlist !== undefined) {
-        const { songs } = playlist;
-        const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
-        console.log("🚀 ~ React.useEffect ~ totalSongsOnPlaylist:", totalSongsOnPlaylist)
-
-        if (totalSongsOnPlaylist > 0) {
-          movePointerPositionAction(dispatch, 1);
-        }
-      }
-    }
-  }, [playlist, statusPlaylist]);
 
   return (
     <PlaylistDataContext.Provider value={playlistState}>
