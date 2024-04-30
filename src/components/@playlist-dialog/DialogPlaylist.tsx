@@ -7,7 +7,7 @@ export default function DialogPlaylist() {
 
   return (
     <article
-      className="flex h-[668px] w-[320px] flex-col justify-between gap-4 rounded-lg border bg-white md:h-[700px] md:w-[360px]"
+      className="flex h-[660px] w-[310px] flex-col justify-between gap-4 rounded-lg border bg-white md:h-[700px] md:w-[360px]"
       ref={dialogRef}
     >
       <CardPlaylist />

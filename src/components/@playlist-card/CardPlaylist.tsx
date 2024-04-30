@@ -7,7 +7,7 @@ export default function CardPlaylist() {
   const { currentPlaylist } = React.useContext(PlaylistDataContext);
 
   return (
-    <article className="flex h-[668px] w-[320px] flex-col justify-between gap-4 rounded-lg border bg-white md:h-[700px] md:w-[360px]">
+    <article className="flex size-full flex-col justify-between rounded-lg border">
       <HeaderDialogPlaylist />
       <BoxPlaylistSongList songsInPlaylist={currentPlaylist.songs} />
     </article>
