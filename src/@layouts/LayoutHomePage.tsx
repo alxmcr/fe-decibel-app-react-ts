@@ -1,8 +1,8 @@
 import React from 'react';
-import CardPlayer from '../components/@player/CardPlayer';
-import DialogPlaylist from '../components/@playlist-dialog/DialogPlaylist';
-import { PlaylistDataContext } from '../providers/PlaylistProvider/PlaylistContext';
 import { LoadingStates } from '../@enums/appEnums';
+import CardPlayer from '../components/@player/CardPlayer';
+import CardPlaylist from '../components/@playlist/CardPlaylist';
+import { PlaylistDataContext } from '../providers/PlaylistProvider/PlaylistContext';
 
 export default function LayoutHomePage() {
   const { statusPlaylist, errorPlaylist } = React.useContext(PlaylistDataContext);
@@ -27,7 +27,7 @@ export default function LayoutHomePage() {
   return (
     <main className="flex h-screen items-center justify-center gap-2 bg-perano-200">
       <CardPlayer />
-      <DialogPlaylist />
+      <CardPlaylist />
     </main>
   );
 }
