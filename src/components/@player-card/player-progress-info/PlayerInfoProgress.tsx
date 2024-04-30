@@ -23,7 +23,7 @@ export default function PlayerInfoProgress() {
   }, [isPlayableAudio, audioToPlay, dispatchPlayer]);
 
   return (
-    <div className="flex flex-col gap-2 border">
+    <div className="flex flex-col gap-2">
       <PlayerProgressBar durationOnSeconds={durationOnSeconds} elapsedTimeInSeconds={elapsedTimeInSeconds} />
       <PlayerChronometer durationOnSeconds={durationOnSeconds} elapsedTimeInSeconds={elapsedTimeInSeconds} />
     </div>

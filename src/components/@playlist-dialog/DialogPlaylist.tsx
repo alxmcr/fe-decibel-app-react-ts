@@ -1,20 +1,16 @@
 import React from 'react';
 import { DialogPlaylistRefContext } from '../../providers/DialogPlaylistProvider/DialogPlaylistContext';
-import { PlaylistDataContext } from '../../providers/PlaylistProvider/PlaylistContext';
-import BoxPlaylistSongList from './BoxPlaylistSongList';
-import HeaderDialogPlaylist from './HeaderDialogPlaylist';
+import CardPlaylist from '../@playlist-card/CardPlaylist';
 
 export default function DialogPlaylist() {
-  const { currentPlaylist } = React.useContext(PlaylistDataContext);
   const dialogRef = React.useContext(DialogPlaylistRefContext);
 
   return (
-    <article
-      className="flex h-[668px] w-[320px] flex-col justify-between gap-4 rounded-lg border bg-white md:h-[700px] md:w-[360px]"
+    <dialog
+      className="absolute h-[640px] w-[300px] rounded-lg bg-light-50 backdrop:bg-black/50"
       ref={dialogRef}
     >
-      <HeaderDialogPlaylist />
-      <BoxPlaylistSongList songsInPlaylist={currentPlaylist.songs} />
-    </article>
+      <CardPlaylist />
+    </dialog>
   );
 }

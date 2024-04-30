@@ -51,7 +51,7 @@ export default function CardPlayer() {
   }, [player, dispatchPlayer]);
 
   return (
-    <article className="flex h-[668px] w-[320px] flex-col justify-between gap-4 rounded-lg border bg-white p-4 md:h-[700px] md:w-[360px]">
+    <article className="flex size-full flex-col justify-between gap-3 rounded-lg bg-white p-4">
       <HeaderCardPlayer />
       <PlayerSongInfo />
       <FooterCardPlayer />

@@ -52,7 +52,7 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
 
   return (
     <li
-      className={`${isSelectedToPlay ? 'is-selected-to-play' : 'bg-white text-perano-300'} box-border flex max-h-[160px] items-center justify-between gap-3 rounded-lg border p-3 hover:bg-perano-300 hover:text-white`}
+      className={`${isSelectedToPlay ? 'is-selected-to-play' : 'bg-white text-perano-300'} box-border flex max-h-[160px] items-center justify-between gap-3 rounded-lg p-3 hover:bg-perano-300 hover:text-white`}
       onClick={selectSongToPlay}
     >
       <div className="flex items-center gap-2">
@@ -62,13 +62,13 @@ export default function PlaylistSongListItem({ songInPlaylist }: Props) {
           className="size-[45px] rounded-full shadow-lg"
         />
         <div className="flex flex-col gap-1">
-          <h2 className="text-[0.95rem] font-bold text-black">{songInPlaylist.name}</h2>
-          <p className="text-[0.85rem]">{songInPlaylist.singer}</p>
+          <h2 className="text-[0.9rem] font-bold text-black md:text-[0.95rem]">{songInPlaylist.name}</h2>
+          <p className="text-[0.8rem] md:text-[0.85rem]">{songInPlaylist.singer}</p>
         </div>
       </div>
       <div className="flex items-center gap-8">
         {songInPlaylist.position === pointerPositionSong ? <BoxSoundBarsAnimation /> : null}
-        <p className="text-[0.85rem]">{songInPlaylist.duration}</p>
+        <p className="text-[0.8rem] md:text-[0.85rem]">{songInPlaylist.duration}</p>
       </div>
     </li>
   );
