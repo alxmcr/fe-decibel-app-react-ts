@@ -11,6 +11,7 @@ import Icon50x50NextSongFilled from '../../@icons/50x50/Icon50x50NextSongFilled'
 import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
 import {
   setIsPlayableAction,
+  updateElapsedTimeAction,
   updateStatusPlayerAction,
 } from '../../../store/@actions-creators/playerActions';
 import { PlayerStatus } from '../../../@enums/appEnums';
@@ -27,8 +28,9 @@ export default function PlayerControlsNextSong() {
 
       if (pointerPositionSong < totalSongsOnPlaylist) {
         audioToPlay?.pause();
-        updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
         setIsPlayableAction(dispatchPlayer, false);
+        updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+        updateElapsedTimeAction(dispatchPlayer, 0);
 
         // move pointer
         const songs = currentPlaylist.songs;

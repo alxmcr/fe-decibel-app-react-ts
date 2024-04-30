@@ -1,16 +1,20 @@
 import React from 'react';
-import Icon50x50PrevSongFilled from '../../@icons/50x50/Icon50x50PrevSongFilled';
+import { PlayerStatus } from '../../../@enums/appEnums';
+import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
 import {
   PlaylistDataContext,
   PlaylistDispatchContext,
 } from '../../../providers/PlaylistProvider/PlaylistContext';
 import {
+  setIsPlayableAction,
+  updateElapsedTimeAction,
+  updateStatusPlayerAction,
+} from '../../../store/@actions-creators/playerActions';
+import {
   movePointerPositionAction,
   selectSongToPlayAction,
 } from '../../../store/@actions-creators/playlistActions';
-import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
-import { setIsPlayableAction, updateStatusPlayerAction } from '../../../store/@actions-creators/playerActions';
-import { PlayerStatus } from '../../../@enums/appEnums';
+import Icon50x50PrevSongFilled from '../../@icons/50x50/Icon50x50PrevSongFilled';
 
 export default function PlayerControlsPrevSong() {
   const { pointerPositionSong, currentPlaylist } = React.useContext(PlaylistDataContext);
@@ -22,8 +26,9 @@ export default function PlayerControlsPrevSong() {
     if (audioToPlay !== null && audioToPlay !== undefined) {
       if (pointerPositionSong - 1 > 0) {
         audioToPlay?.pause();
-        updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
         setIsPlayableAction(dispatchPlayer, false);
+        updateStatusPlayerAction(dispatchPlayer, PlayerStatus.IDLE);
+        updateElapsedTimeAction(dispatchPlayer, 0);
 
         // move pointer
         const songs = currentPlaylist.songs;
