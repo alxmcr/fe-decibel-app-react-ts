@@ -21,6 +21,8 @@ export default function PlayerControlsNextSong() {
     }
   };
 
+  React.useEffect(() => {}, [pointerPositionSong]);
+
   return (
     <button className="text-perano-300" onClick={nextSong}>
       <Icon50x50NextSongFilled />
