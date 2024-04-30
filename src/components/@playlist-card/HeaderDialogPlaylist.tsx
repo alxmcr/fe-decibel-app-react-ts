@@ -6,7 +6,7 @@ export default function HeaderDialogPlaylist() {
   const { closeDialogPlaylist } = React.useContext(DialogPlaylistActionsContext);
 
   return (
-    <header className="relative flex h-1/6 w-full items-center justify-center rounded-lg border bg-perano-500 text-light-50">
+    <header className="relative flex h-1/6 w-full items-center justify-center rounded-lg bg-perano-500 text-light-50">
       <button className="absolute left-5 md:hover:text-perano-200" onClick={closeDialogPlaylist}>
         <Icon30x30ArrowBack />
       </button>

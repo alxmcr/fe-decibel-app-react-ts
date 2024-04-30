@@ -7,7 +7,7 @@ type Props = {
 
 export default function PlaylistSongList({ songsInPlaylist = [] }: Props) {
   return (
-    <ul className="flex flex-col gap-3 border">
+    <ul className="flex flex-col gap-3">
       {songsInPlaylist.map((song) => (
         <PlaylistSongListItem key={song.id} songInPlaylist={song} />
       ))}

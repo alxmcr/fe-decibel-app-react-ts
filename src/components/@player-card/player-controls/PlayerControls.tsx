@@ -10,7 +10,7 @@ export default function PlayerControls() {
   const { statusPlayer } = React.useContext(PlayerDataContext);
 
   return (
-    <div className="flex items-center justify-center gap-8 border">
+    <div className="flex items-center justify-center gap-8">
       <PlayerControlsPrevSong />
       {statusPlayer === PlayerStatus.NOW_PLAYING ? <PlayerControlsPauseSong /> : <PlayerControlsPlaySong />}
       <PlayerControlsNextSong />
