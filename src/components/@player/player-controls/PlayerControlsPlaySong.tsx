@@ -1,8 +1,6 @@
 import React from 'react';
 import { PlayerDataContext, PlayerDispatchContext } from '../../../providers/PlayerProvider/PlayerContext';
-import {
-  playAction
-} from '../../../store/@actions-creators/playerActions';
+import { playAction } from '../../../store/@actions-creators/playerActions';
 import Icon80x80Play from '../../@icons/80x80/Icon80x80Play';
 
 export default function PlayerControlsPlaySong() {
@@ -16,7 +14,6 @@ export default function PlayerControlsPlaySong() {
       player.audioToPlay?.play();
     }
   };
-
 
   return (
     <button onClick={playSong} className="text-perano-500">
