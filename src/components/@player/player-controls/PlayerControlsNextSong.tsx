@@ -5,7 +5,7 @@ import {
 } from '../../../providers/PlaylistProvider/PlaylistContext';
 import {
   movePointerPositionAction,
-  selectSongToPlayAction
+  selectSongToPlayAction,
 } from '../../../store/@actions-creators/playlistActions';
 import Icon50x50NextSongFilled from '../../@icons/50x50/Icon50x50NextSongFilled';
 
@@ -18,7 +18,7 @@ export default function PlayerControlsNextSong() {
 
     const totalSongsOnPlaylist = currentPlaylist.songs.length;
 
-    if (pointerPositionSong <= totalSongsOnPlaylist) {
+    if (pointerPositionSong < totalSongsOnPlaylist) {
       const songs = currentPlaylist.songs;
       const totalSongsOnPlaylist = songs !== null ? songs.length : 0;
 
