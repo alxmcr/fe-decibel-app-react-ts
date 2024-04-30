@@ -1,8 +1,8 @@
 import React from 'react';
 import { DialogPlaylistRefContext } from '../../providers/DialogPlaylistProvider/DialogPlaylistContext';
 import { PlaylistDataContext } from '../../providers/PlaylistProvider/PlaylistContext';
-import BoxPlaylistSongList from '../@playlist/BoxPlaylistSongList';
-import HeaderDialogPlaylist from '../@playlist/HeaderDialogPlaylist';
+import BoxPlaylistSongList from '../@playlist-card/BoxPlaylistSongList';
+import HeaderDialogPlaylist from '../@playlist-card/HeaderDialogPlaylist';
 
 export default function DialogPlaylist() {
   const { currentPlaylist } = React.useContext(PlaylistDataContext);

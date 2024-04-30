@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoadingStates } from '../@enums/appEnums';
-import CardPlayer from '../components/@player/CardPlayer';
-import CardPlaylist from '../components/@playlist/CardPlaylist';
+import CardPlayer from '../components/@player-card/CardPlayer';
+import CardPlaylist from '../components/@playlist-card/CardPlaylist';
 import { PlaylistDataContext } from '../providers/PlaylistProvider/PlaylistContext';
 
 export default function LayoutHomePage() {
