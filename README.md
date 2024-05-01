@@ -33,9 +33,9 @@ Start the server
 
 ## Screenshots
 
-![Player](https://evolt-store.netlify.app/screenshots/01-player.png)
+![Player](https://decibel-app.netlify.app/_screenshots/01-player.png)
 
-![Playlist](https://evolt-store.netlify.app/screenshots/02-playlist.png)
+![Playlist](https://decibel-app.netlify.app/_screenshots/02-playlist.png)
 
 
 ## Tech Stack
